@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine;
 
 public class GameState : MonoBehaviour {
@@ -9,13 +10,38 @@ public class GameState : MonoBehaviour {
     public bool rotateZ = false;
     public bool scale = false;
     public int mode = 1;
+    public bool dragging = false;
     private bool liftedMouseButton = true;
+    public bool previousState=false;
+    public bool currentState = false;
+    public FirstPersonController FPController;
+    private float speedRiseFall=.1f;
 	// Use this for initialization
 	void Start () {
-	}
+        FPController = GameObject.Find("FPSController").GetComponent<FirstPersonController>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
+        if (dragging) {
+            if (Input.GetButtonUp("XBOX_A"))
+            {
+                dragging=false;
+            }
+        }
+        if (Input.GetButton("XBOX_RIGHT_BUMPER"))
+        {
+            FPController.transform.localPosition = new Vector3(FPController.transform.localPosition.x, FPController.transform.localPosition.y+(speedRiseFall), FPController.transform.localPosition.z);
+        }
+        if (Input.GetButton("XBOX_LEFT_BUMPER"))
+        {
+            FPController.transform.localPosition = new Vector3(FPController.transform.localPosition.x, FPController.transform.localPosition.y - (speedRiseFall), FPController.transform.localPosition.z);
+        }
+        if (currentState!=previousState)
+        {
+            currentState=false;
+            dragging = !dragging;
+        }
         if (Input.GetMouseButtonDown(1)&&liftedMouseButton)
         {
             ToggleMode();
