@@ -1,0 +1,176 @@
+fileFormatVersion: 2
+guid: f61f0a3dc339a794bae404b8a5f68d09
+timeCreated: 1493623008
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Fryer
+    100002: //RootNode
+    100004: Fryer_001
+    100006: Fryer_002
+    100008: Fryer_003
+    100010: Fryer_004
+    100012: Fryer_005
+    100014: Fryer_006
+    100016: Fryer_007
+    100018: Fryer_008
+    100020: Fryer_009
+    100022: Fryer_010
+    100024: Fryer_011
+    100026: Fryer_012
+    100028: Fryer_013
+    100030: Fryer_014
+    100032: Fryer_015
+    100034: Fryer_016
+    100036: Fryer_017
+    100038: Fryer_018
+    400000: Fryer
+    400002: //RootNode
+    400004: Fryer_001
+    400006: Fryer_002
+    400008: Fryer_003
+    400010: Fryer_004
+    400012: Fryer_005
+    400014: Fryer_006
+    400016: Fryer_007
+    400018: Fryer_008
+    400020: Fryer_009
+    400022: Fryer_010
+    400024: Fryer_011
+    400026: Fryer_012
+    400028: Fryer_013
+    400030: Fryer_014
+    400032: Fryer_015
+    400034: Fryer_016
+    400036: Fryer_017
+    400038: Fryer_018
+    2300000: Fryer
+    2300002: Fryer_001
+    2300004: Fryer_002
+    2300006: Fryer_003
+    2300008: Fryer_004
+    2300010: Fryer_005
+    2300012: Fryer_006
+    2300014: Fryer_007
+    2300016: Fryer_008
+    2300018: Fryer_009
+    2300020: Fryer_010
+    2300022: Fryer_011
+    2300024: Fryer_012
+    2300026: Fryer_013
+    2300028: Fryer_014
+    2300030: Fryer_015
+    2300032: Fryer_016
+    2300034: Fryer_017
+    2300036: Fryer_018
+    3300000: Fryer
+    3300002: Fryer_001
+    3300004: Fryer_002
+    3300006: Fryer_003
+    3300008: Fryer_004
+    3300010: Fryer_005
+    3300012: Fryer_006
+    3300014: Fryer_007
+    3300016: Fryer_008
+    3300018: Fryer_009
+    3300020: Fryer_010
+    3300022: Fryer_011
+    3300024: Fryer_012
+    3300026: Fryer_013
+    3300028: Fryer_014
+    3300030: Fryer_015
+    3300032: Fryer_016
+    3300034: Fryer_017
+    3300036: Fryer_018
+    4300000: Fryer_018
+    4300002: Fryer_017
+    4300004: Fryer_016
+    4300006: Fryer_015
+    4300008: Fryer_014
+    4300010: Fryer_013
+    4300012: Fryer_012
+    4300014: Fryer_011
+    4300016: Fryer_010
+    4300018: Fryer_009
+    4300020: Fryer_008
+    4300022: Fryer_007
+    4300024: Fryer_006
+    4300026: Fryer_005
+    4300028: Fryer_004
+    4300030: Fryer_003
+    4300032: Fryer_002
+    4300034: Fryer_001
+    4300036: Fryer
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

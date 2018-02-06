@@ -1,0 +1,151 @@
+fileFormatVersion: 2
+guid: 27f15d15454a9e4458bb32fb79711838
+timeCreated: 1493622616
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Fridge
+    100002: Fridge_001
+    100004: Fridge_002
+    100006: Fridge_003
+    100008: Fridge_004
+    100010: Fridge_005
+    100012: Fridge_006
+    100014: Fridge_007
+    100016: Fridge_008
+    100018: Fridge_009
+    100020: Fridge_010
+    100022: Fridge_011
+    100024: Fridge_012
+    100026: Fridge_013
+    100028: //RootNode
+    400000: Fridge
+    400002: Fridge_001
+    400004: Fridge_002
+    400006: Fridge_003
+    400008: Fridge_004
+    400010: Fridge_005
+    400012: Fridge_006
+    400014: Fridge_007
+    400016: Fridge_008
+    400018: Fridge_009
+    400020: Fridge_010
+    400022: Fridge_011
+    400024: Fridge_012
+    400026: Fridge_013
+    400028: //RootNode
+    2300000: Fridge
+    2300002: Fridge_001
+    2300004: Fridge_002
+    2300006: Fridge_003
+    2300008: Fridge_004
+    2300010: Fridge_005
+    2300012: Fridge_006
+    2300014: Fridge_007
+    2300016: Fridge_008
+    2300018: Fridge_009
+    2300020: Fridge_010
+    2300022: Fridge_011
+    2300024: Fridge_012
+    2300026: Fridge_013
+    3300000: Fridge
+    3300002: Fridge_001
+    3300004: Fridge_002
+    3300006: Fridge_003
+    3300008: Fridge_004
+    3300010: Fridge_005
+    3300012: Fridge_006
+    3300014: Fridge_007
+    3300016: Fridge_008
+    3300018: Fridge_009
+    3300020: Fridge_010
+    3300022: Fridge_011
+    3300024: Fridge_012
+    3300026: Fridge_013
+    4300000: Fridge_013
+    4300002: Fridge_012
+    4300004: Fridge_011
+    4300006: Fridge_010
+    4300008: Fridge_009
+    4300010: Fridge_008
+    4300012: Fridge_007
+    4300014: Fridge_006
+    4300016: Fridge_005
+    4300018: Fridge_004
+    4300020: Fridge_003
+    4300022: Fridge_002
+    4300024: Fridge_001
+    4300026: Fridge
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
