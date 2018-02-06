@@ -15,7 +15,9 @@ public class GameState : MonoBehaviour {
     public bool previousState=false;
     public bool currentState = false;
     public FirstPersonController FPController;
-    private float speedRiseFall=.1f;
+    private float speedRiseFall=.05f;
+    public float scaleSpeed = 5f;
+    public bool disableRiseFall = false;
 	// Use this for initialization
 	void Start () {
         FPController = GameObject.Find("FPSController").GetComponent<FirstPersonController>();
@@ -29,13 +31,16 @@ public class GameState : MonoBehaviour {
                 dragging=false;
             }
         }
-        if (Input.GetButton("XBOX_RIGHT_BUMPER"))
+        if (!disableRiseFall)
         {
-            FPController.transform.localPosition = new Vector3(FPController.transform.localPosition.x, FPController.transform.localPosition.y+(speedRiseFall), FPController.transform.localPosition.z);
-        }
-        if (Input.GetButton("XBOX_LEFT_BUMPER"))
-        {
-            FPController.transform.localPosition = new Vector3(FPController.transform.localPosition.x, FPController.transform.localPosition.y - (speedRiseFall), FPController.transform.localPosition.z);
+            if (Input.GetButton("XBOX_RIGHT_BUMPER"))
+            {
+                FPController.transform.localPosition = new Vector3(FPController.transform.localPosition.x, FPController.transform.localPosition.y + (speedRiseFall), FPController.transform.localPosition.z);
+            }
+            if (Input.GetButton("XBOX_LEFT_BUMPER"))
+            {
+                FPController.transform.localPosition = new Vector3(FPController.transform.localPosition.x, FPController.transform.localPosition.y - (speedRiseFall), FPController.transform.localPosition.z);
+            }
         }
         if (currentState!=previousState)
         {

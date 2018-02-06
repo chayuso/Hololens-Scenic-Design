@@ -4,23 +4,33 @@ using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerTargeting : MonoBehaviour {
-    private Text Interact;
+    //private Text Interact;
+    private Image uiAButton;
     private GameState GS;
-    public GameObject C;
-    bool canPickup = false;
+    public bool canPickup = false;
     public bool draggingthis = false;
+    private bool DpadHclick = false;
+    private bool DpadVclick = false;
+    private Quaternion originalRotation;
+    private Vector3 originalScale;
+    private bool SwitchYRotation = false;
+    private float distanceFromObject = 4f;
+    private bool SelectButtonPressed = false;
+    private float rotationSpeed = 1f;
     // Use this for initialization
     void Start () {
         GS = GameObject.Find("GameState").GetComponent<GameState>();
         foreach (Transform tr in GameObject.Find("Canvas").transform)
         {
-            if (tr.name=="Interact")
+            if (tr.name=="AButton")
             {
-                Interact = tr.GetComponent<Text>();
+                uiAButton = tr.GetComponent<Image>();
                 break;
             }
         }
-        Interact.enabled = false;
+        uiAButton.enabled = false;
+        originalRotation = transform.rotation;
+        originalScale = transform.localScale;
     }
 	
 	// Update is called once per frame
@@ -32,20 +42,126 @@ public class PlayerTargeting : MonoBehaviour {
             if (GS.translate)
             {
                 //code from https://www.youtube.com/watch?v=pK1CbnE2VsI
-                Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 5);
+                Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distanceFromObject);
                 Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
                 transform.position = objPosition;
             }
+            if (!SelectButtonPressed) {
+                if (Input.GetButtonDown("CONTROLLER_LEFT_MENU"))
+                {
+                    SelectButtonPressed = true;
+                    SwitchYRotation = !SwitchYRotation;
+                }
+            }
+            else if (Input.GetButtonUp("CONTROLLER_LEFT_MENU"))
+            {
+                SelectButtonPressed = false;
+            }
+            if (Input.GetButton("CONTROLLER_RIGHT_STICK_CLICK"))
+            {
+                transform.rotation = originalRotation;
+            }
+            if (Input.GetButton("CONTROLLER_LEFT_STICK_CLICK"))
+            {
+                transform.localScale = originalScale;
+            }
+            if (!DpadHclick)
+            {
+                if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") > .25)
+                {
+                    transform.Rotate(0,22.5f, 0);
+                    DpadHclick = true;
+                }
+                else if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") < -.25)
+                {
+                    transform.Rotate(0, -22.5f, 0);
+                    DpadHclick = true;
+                }
+            }
+            else
+            {
+                if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") > -.1&& Input.GetAxis("XBOX_DPAD_HORIZONTAL") < .1)
+                {
+                    DpadHclick = false;
+                }
+            }
+            if (!DpadVclick)
+            {
+                if (Input.GetAxis("XBOX_DPAD_VERTICAL") > .25)
+                {
+                    if (SwitchYRotation) { transform.Rotate(22.5f, 0, 0); }
+                    else { transform.Rotate(0, 0, 22.5f); }
+                    DpadVclick = true;
+                }
+                else if (Input.GetAxis("XBOX_DPAD_VERTICAL") < -.25)
+                {
+                    if (SwitchYRotation) { transform.Rotate(-22.5f, 0, 0); }
+                    else { transform.Rotate(0, 0, -22.5f); }
+                    DpadVclick = true;
+                }
+            }
+            else
+            {
+                if (Input.GetAxis("XBOX_DPAD_VERTICAL") > -.1 && Input.GetAxis("XBOX_DPAD_VERTICAL") < .1)
+                {
+                    DpadVclick = false;
+                }
+            }
+            if (Input.GetButtonUp("XBOX_X"))
+            {
+                SpawnDuplicate();
+            }
             if (Input.GetAxis("CONTROLLER_RIGHT_TRIGGER") > .25)
             {
                 GS.FPController.enabled = false;
-                float ih = 5f * Input.GetAxis("CONTROLLER_RIGHT_STICK_HORIZONTAL");
-                transform.Rotate(0, -ih, 0);
-                float iv = 5f * Input.GetAxis("CONTROLLER_LEFT_STICK_VERTICAL");
-                transform.Rotate(0, 0, -iv);
+
+                float rv = rotationSpeed * Input.GetAxis("CONTROLLER_RIGHT_STICK_VERTICAL");
+                if (SwitchYRotation) { transform.Rotate(-rv, 0, 0); }
+                else { transform.Rotate(0, 0, -rv); }
+                
+                float rh = rotationSpeed * Input.GetAxis("CONTROLLER_RIGHT_STICK_HORIZONTAL");
+                transform.Rotate(0, -rh, 0);
+
+                float lh = rotationSpeed * Input.GetAxis("CONTROLLER_LEFT_STICK_HORIZONTAL");
+                if (SwitchYRotation) { transform.Rotate(0, 0, -lh); }
+                else { transform.Rotate(-lh, 0, 0); }
+
+
+                float lvd = .01f * Input.GetAxis("CONTROLLER_LEFT_STICK_VERTICAL");
+                distanceFromObject += lvd;
+                /*float lv = 5f * Input.GetAxis("CONTROLLER_LEFT_STICK_VERTICAL");
+                if (SwitchYRotation) { transform.Rotate(-lv, 0, 0); }
+                else { transform.Rotate(0, 0, -lv); }*/
             }
-            else { GS.FPController.enabled = true; }
+            //else { GS.FPController.enabled = true; }
+            else if (Input.GetAxis("CONTROLLER_LEFT_TRIGGER") > .25)
+            {
+                GS.disableRiseFall = true;
+                GS.FPController.enabled = false;
+                float lvd = .01f*Input.GetAxis("CONTROLLER_LEFT_STICK_VERTICAL");
+                distanceFromObject += lvd;
+
+                if (Input.GetButton("XBOX_RIGHT_BUMPER"))
+                {
+                    transform.localScale = new Vector3(transform.localScale.x + GS.scaleSpeed, transform.localScale.y + GS.scaleSpeed, transform.localScale.z + GS.scaleSpeed);
+
+                }
+                else if (Input.GetButton("XBOX_LEFT_BUMPER"))
+                {
+                    transform.localScale = new Vector3(transform.localScale.x - GS.scaleSpeed, transform.localScale.y - GS.scaleSpeed, transform.localScale.z - GS.scaleSpeed);
+                }
+            }
+            else {
+                GS.FPController.enabled = true;
+                GS.disableRiseFall= false; }
+
+            if (Input.GetButton("XBOX_Y"))
+            {
+                draggingthis = false;
+                GS.dragging = false;
+                Destroy(gameObject);
+            }
         }
         if(!GS.dragging){
             if (draggingthis)
@@ -66,17 +182,13 @@ public class PlayerTargeting : MonoBehaviour {
         if (!GS.dragging)
         {
             //GS.dragging = true;
-            Interact.enabled = false;
+            uiAButton.enabled = false;
             canPickup = false;
             GS.currentState = true;
             draggingthis = true;
         }
 
     }
-    /*void OnMouseDown()
-    {
-        GS.setHolding(true,gameObject);
-    }*/
     void OnMouseDrag()
     {
         if (GS.translate)
@@ -128,9 +240,9 @@ public class PlayerTargeting : MonoBehaviour {
     {
         if (!GS.dragging)
         {
-            Interact.text = transform.name;
+            //Interact.text = transform.name;
             //Interact.color = Color.cyan;
-            Interact.enabled = true;
+            uiAButton.enabled = true;
             canPickup = true;
             
         }
@@ -139,9 +251,20 @@ public class PlayerTargeting : MonoBehaviour {
     {
         if (!GS.dragging)
         {
-            Interact.enabled = false;
+            uiAButton.enabled = false;
             canPickup = false;
         }
+
+    }
+
+    public void SpawnDuplicate()
+    {
+        var Dup = (GameObject)Instantiate(
+            gameObject,
+            transform.position,
+            transform.rotation);
+        Dup.GetComponent<PlayerTargeting>().canPickup = false;
+        Dup.GetComponent<PlayerTargeting>().draggingthis = false;
 
     }
 }

@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: c4d9e58b09e33394a8838c4b755c5388
+timeCreated: 1493622994
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Stoveoven
+    100002: //RootNode
+    100004: Stoveoven_001
+    100006: Stoveoven_002
+    100008: Stoveoven_003
+    100010: Stoveoven_004
+    100012: Stoveoven_005
+    100014: Stoveoven_006
+    100016: Stoveoven_007
+    100018: Stoveoven_008
+    100020: Stoveoven_009
+    100022: Stoveoven_010
+    100024: Stoveoven_011
+    100026: Stoveoven_012
+    100028: Stoveoven_013
+    100030: Stoveoven_014
+    100032: Stoveoven_015
+    100034: Stoveoven_016
+    100036: Stoveoven_017
+    100038: Stoveoven_018
+    100040: Stoveoven_019
+    100042: Stoveoven_020
+    100044: Stoveoven_021
+    100046: Stoveoven_022
+    100048: Stoveoven_023
+    400000: Stoveoven
+    400002: //RootNode
+    400004: Stoveoven_001
+    400006: Stoveoven_002
+    400008: Stoveoven_003
+    400010: Stoveoven_004
+    400012: Stoveoven_005
+    400014: Stoveoven_006
+    400016: Stoveoven_007
+    400018: Stoveoven_008
+    400020: Stoveoven_009
+    400022: Stoveoven_010
+    400024: Stoveoven_011
+    400026: Stoveoven_012
+    400028: Stoveoven_013
+    400030: Stoveoven_014
+    400032: Stoveoven_015
+    400034: Stoveoven_016
+    400036: Stoveoven_017
+    400038: Stoveoven_018
+    400040: Stoveoven_019
+    400042: Stoveoven_020
+    400044: Stoveoven_021
+    400046: Stoveoven_022
+    400048: Stoveoven_023
+    2300000: Stoveoven
+    2300002: Stoveoven_001
+    2300004: Stoveoven_002
+    2300006: Stoveoven_003
+    2300008: Stoveoven_004
+    2300010: Stoveoven_005
+    2300012: Stoveoven_006
+    2300014: Stoveoven_007
+    2300016: Stoveoven_008
+    2300018: Stoveoven_009
+    2300020: Stoveoven_010
+    2300022: Stoveoven_011
+    2300024: Stoveoven_012
+    2300026: Stoveoven_013
+    2300028: Stoveoven_014
+    2300030: Stoveoven_015
+    2300032: Stoveoven_016
+    2300034: Stoveoven_017
+    2300036: Stoveoven_018
+    2300038: Stoveoven_019
+    2300040: Stoveoven_020
+    2300042: Stoveoven_021
+    2300044: Stoveoven_022
+    2300046: Stoveoven_023
+    3300000: Stoveoven
+    3300002: Stoveoven_001
+    3300004: Stoveoven_002
+    3300006: Stoveoven_003
+    3300008: Stoveoven_004
+    3300010: Stoveoven_005
+    3300012: Stoveoven_006
+    3300014: Stoveoven_007
+    3300016: Stoveoven_008
+    3300018: Stoveoven_009
+    3300020: Stoveoven_010
+    3300022: Stoveoven_011
+    3300024: Stoveoven_012
+    3300026: Stoveoven_013
+    3300028: Stoveoven_014
+    3300030: Stoveoven_015
+    3300032: Stoveoven_016
+    3300034: Stoveoven_017
+    3300036: Stoveoven_018
+    3300038: Stoveoven_019
+    3300040: Stoveoven_020
+    3300042: Stoveoven_021
+    3300044: Stoveoven_022
+    3300046: Stoveoven_023
+    4300000: Stoveoven_023
+    4300002: Stoveoven_022
+    4300004: Stoveoven_021
+    4300006: Stoveoven_020
+    4300008: Stoveoven_019
+    4300010: Stoveoven_018
+    4300012: Stoveoven_017
+    4300014: Stoveoven_016
+    4300016: Stoveoven_015
+    4300018: Stoveoven_014
+    4300020: Stoveoven_013
+    4300022: Stoveoven_012
+    4300024: Stoveoven_011
+    4300026: Stoveoven_010
+    4300028: Stoveoven_009
+    4300030: Stoveoven_008
+    4300032: Stoveoven_007
+    4300034: Stoveoven_006
+    4300036: Stoveoven_005
+    4300038: Stoveoven_004
+    4300040: Stoveoven_003
+    4300042: Stoveoven_002
+    4300044: Stoveoven_001
+    4300046: Stoveoven
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
