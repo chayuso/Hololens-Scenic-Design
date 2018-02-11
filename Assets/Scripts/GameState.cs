@@ -18,28 +18,64 @@ public class GameState : MonoBehaviour {
     private float speedRiseFall=.05f;
     public float scaleSpeed = 5f;
     public bool disableRiseFall = false;
+    private CameraShiftController CameraShifter;
+    private bool RightBumperDown = false;
+    private bool LeftBumperDown = false;
+    public GameObject BallController;
 	// Use this for initialization
 	void Start () {
         FPController = GameObject.Find("FPSController").GetComponent<FirstPersonController>();
+        CameraShifter = GameObject.FindObjectOfType<CameraShiftController>();
+        BallController = GameObject.Find("BallPlayerController (1)");
+        BallController.transform.rotation = FPController.transform.rotation;
+        BallController.transform.position = FPController.transform.position;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        BallController.transform.rotation = FPController.transform.rotation;
+        //if (Input.GetAxis("XBOX_DPAD_VERTICAL") > .25)//&& !dragging)
+        if (Input.GetButtonUp("XBOX_B"))
+        {
+            FPController.transform.position = BallController.transform.position;
+            
+        }
         if (dragging) {
             if (Input.GetButtonUp("XBOX_A"))
             {
                 dragging=false;
             }
         }
+        if (!disableRiseFall && !dragging)
+        {
+            if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") > .25 && !RightBumperDown)
+            {
+                RightBumperDown = true;
+                CameraShifter.NextCam();
+            }
+            if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") > -.1 && Input.GetAxis("XBOX_DPAD_HORIZONTAL") < .1)
+            {
+                RightBumperDown = false;
+            }
+            if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") < -.25 && !LeftBumperDown)
+            {
+                LeftBumperDown = true;
+                CameraShifter.PreviousCam();
+            }
+            if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") > -.1 && Input.GetAxis("XBOX_DPAD_HORIZONTAL") < .1)
+            {
+                LeftBumperDown = false;
+            }
+        }
         if (!disableRiseFall)
         {
             if (Input.GetButton("XBOX_RIGHT_BUMPER"))
             {
-                FPController.transform.localPosition = new Vector3(FPController.transform.localPosition.x, FPController.transform.localPosition.y + (speedRiseFall), FPController.transform.localPosition.z);
+                BallController.transform.localPosition = new Vector3(BallController.transform.localPosition.x, BallController.transform.localPosition.y + (speedRiseFall), BallController.transform.localPosition.z);
             }
             if (Input.GetButton("XBOX_LEFT_BUMPER"))
             {
-                FPController.transform.localPosition = new Vector3(FPController.transform.localPosition.x, FPController.transform.localPosition.y - (speedRiseFall), FPController.transform.localPosition.z);
+                BallController.transform.localPosition = new Vector3(BallController.transform.localPosition.x, BallController.transform.localPosition.y - (speedRiseFall), BallController.transform.localPosition.z);
             }
         }
         if (currentState!=previousState)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine;
 
 public class PlayerTargeting : MonoBehaviour {
@@ -112,10 +113,10 @@ public class PlayerTargeting : MonoBehaviour {
             {
                 SpawnDuplicate();
             }
-            if (Input.GetAxis("CONTROLLER_RIGHT_TRIGGER") > .25)
+            if (Input.GetAxis("CONTROLLER_RIGHT_TRIGGER") > .55)
             {
                 GS.FPController.enabled = false;
-
+                GS.BallController.GetComponent<FirstPersonController>().enabled = false;
                 float rv = rotationSpeed * Input.GetAxis("CONTROLLER_RIGHT_STICK_VERTICAL");
                 if (SwitchYRotation) { transform.Rotate(-rv, 0, 0); }
                 else { transform.Rotate(0, 0, -rv); }
@@ -135,10 +136,11 @@ public class PlayerTargeting : MonoBehaviour {
                 else { transform.Rotate(0, 0, -lv); }*/
             }
             //else { GS.FPController.enabled = true; }
-            else if (Input.GetAxis("CONTROLLER_LEFT_TRIGGER") > .25)
+            else if (Input.GetAxis("CONTROLLER_LEFT_TRIGGER") > .55)
             {
                 GS.disableRiseFall = true;
                 GS.FPController.enabled = false;
+                GS.BallController.GetComponent<FirstPersonController>().enabled = false;
                 float lvd = .01f*Input.GetAxis("CONTROLLER_LEFT_STICK_VERTICAL");
                 distanceFromObject += lvd;
 
@@ -154,6 +156,7 @@ public class PlayerTargeting : MonoBehaviour {
             }
             else {
                 GS.FPController.enabled = true;
+                GS.BallController.GetComponent<FirstPersonController>().enabled = true;
                 GS.disableRiseFall= false; }
 
             if (Input.GetButton("XBOX_Y"))
@@ -168,7 +171,7 @@ public class PlayerTargeting : MonoBehaviour {
             {
                 draggingthis = false;
             }
-            if (canPickup)
+            else if (canPickup)
             {
                 if (Input.GetButtonUp("XBOX_A"))
                 {
@@ -182,10 +185,12 @@ public class PlayerTargeting : MonoBehaviour {
         if (!GS.dragging)
         {
             //GS.dragging = true;
+            distanceFromObject = Vector3.Distance(gameObject.transform.position, GS.FPController.gameObject.transform.position);
             uiAButton.enabled = false;
             canPickup = false;
             GS.currentState = true;
             draggingthis = true;
+            TurnOffShader();
         }
 
     }
@@ -244,8 +249,11 @@ public class PlayerTargeting : MonoBehaviour {
             //Interact.color = Color.cyan;
             uiAButton.enabled = true;
             canPickup = true;
-            
+            TurnOnShader();
+
+
         }
+        
     }
     void OnMouseExit()
     {
@@ -253,10 +261,44 @@ public class PlayerTargeting : MonoBehaviour {
         {
             uiAButton.enabled = false;
             canPickup = false;
+            TurnOffShader();
         }
 
     }
-
+    void TurnOnShader()
+    {
+        if (GetComponent<Renderer>())
+        {
+            GetComponent<Renderer>().material.shader = Shader.Find("Outlined/Silhouetted Bumped Diffuse");
+        }
+        foreach (Transform tr in transform)
+        {
+            if (tr.GetComponent<Renderer>())
+                tr.GetComponent<Renderer>().material.shader = Shader.Find("Outlined/Silhouetted Bumped Diffuse");
+            foreach (Transform trj in tr)
+            {
+                if (trj.GetComponent<Renderer>())
+                    trj.GetComponent<Renderer>().material.shader = Shader.Find("Outlined/Silhouetted Bumped Diffuse");
+            }
+        }
+    }
+    void TurnOffShader()
+    {
+        if (GetComponent<Renderer>())
+        {
+            GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+        }
+        foreach (Transform tr in transform)
+        {
+            if (tr.GetComponent<Renderer>())
+                tr.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+            foreach (Transform trj in tr)
+            {
+                if (trj.GetComponent<Renderer>())
+                    trj.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+            }
+        }
+    }
     public void SpawnDuplicate()
     {
         var Dup = (GameObject)Instantiate(
