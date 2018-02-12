@@ -22,10 +22,12 @@ public class GameState : MonoBehaviour {
     private bool RightBumperDown = false;
     private bool LeftBumperDown = false;
     public GameObject BallController;
+    private GameObject CanvasMenu;
 	// Use this for initialization
 	void Start () {
         FPController = GameObject.Find("FPSController").GetComponent<FirstPersonController>();
         CameraShifter = GameObject.FindObjectOfType<CameraShiftController>();
+        CanvasMenu = GameObject.Find("Canvas");
         BallController = GameObject.Find("BallPlayerController (1)");
         BallController.transform.rotation = FPController.transform.rotation;
         BallController.transform.position = FPController.transform.position;
@@ -33,6 +35,98 @@ public class GameState : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (dragging)
+        {
+            if (Input.GetAxis("CONTROLLER_RIGHT_TRIGGER") > .55)
+            {
+                foreach (Transform tr in CanvasMenu.transform)
+                {
+                    if (tr.name=="FreeRoam")
+                    {
+                        tr.gameObject.SetActive(false);
+                    }
+                    else if (tr.name =="Holding Object")
+                    {
+                        tr.gameObject.SetActive(false);
+                    }
+                    else if (tr.name =="RightTriggerHolding")
+                    {
+                        tr.gameObject.SetActive(true);
+                    }
+                    else if (tr.name == "LeftTriggerHolding")
+                    {
+                        tr.gameObject.SetActive(false);
+                    }
+                }
+            }
+            else if (Input.GetAxis("CONTROLLER_LEFT_TRIGGER") > .55)
+            {
+                foreach (Transform tr in CanvasMenu.transform)
+                {
+                    if (tr.name == "FreeRoam")
+                    {
+                        tr.gameObject.SetActive(false);
+                    }
+                    else if (tr.name == "Holding Object")
+                    {
+                        tr.gameObject.SetActive(false);
+                    }
+                    else if (tr.name == "RightTriggerHolding")
+                    {
+                        tr.gameObject.SetActive(false);
+                    }
+                    else if (tr.name == "LeftTriggerHolding")
+                    {
+                        tr.gameObject.SetActive(true);
+                    }
+                }
+            }
+            else
+            {
+                foreach (Transform tr in CanvasMenu.transform)
+                {
+                    if (tr.name == "FreeRoam")
+                    {
+                        tr.gameObject.SetActive(false);
+                    }
+                    else if (tr.name == "Holding Object")
+                    {
+                        tr.gameObject.SetActive(true);
+                    }
+                    else if (tr.name == "RightTriggerHolding")
+                    {
+                        tr.gameObject.SetActive(false);
+                    }
+                    else if (tr.name == "LeftTriggerHolding")
+                    {
+                        tr.gameObject.SetActive(false);
+                    }
+                }
+            }
+        }
+        else
+        {
+            foreach (Transform tr in CanvasMenu.transform)
+            {
+                if (tr.name == "FreeRoam")
+                {
+                    tr.gameObject.SetActive(true);
+                }
+                else if (tr.name == "Holding Object")
+                {
+                    tr.gameObject.SetActive(false);
+                }
+                else if (tr.name == "RightTriggerHolding")
+                {
+                    tr.gameObject.SetActive(false);
+                }
+                else if (tr.name == "LeftTriggerHolding")
+                {
+                    tr.gameObject.SetActive(false);
+                }
+            }
+        }
+
         BallController.transform.rotation = FPController.transform.rotation;
         //if (Input.GetAxis("XBOX_DPAD_VERTICAL") > .25)//&& !dragging)
         if (Input.GetButtonUp("XBOX_B"))
