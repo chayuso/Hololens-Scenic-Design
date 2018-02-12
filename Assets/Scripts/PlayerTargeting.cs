@@ -59,34 +59,15 @@ public class PlayerTargeting : MonoBehaviour {
             {
                 SelectButtonPressed = false;
             }
-            if (Input.GetButton("CONTROLLER_RIGHT_STICK_CLICK"))
+            /*if (Input.GetButton("CONTROLLER_RIGHT_STICK_CLICK"))
             {
                 transform.rotation = originalRotation;
             }
             if (Input.GetButton("CONTROLLER_LEFT_STICK_CLICK"))
             {
                 transform.localScale = originalScale;
-            }
-            if (!DpadHclick)
-            {
-                if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") > .25)
-                {
-                    transform.Rotate(0,22.5f, 0);
-                    DpadHclick = true;
-                }
-                else if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") < -.25)
-                {
-                    transform.Rotate(0, -22.5f, 0);
-                    DpadHclick = true;
-                }
-            }
-            else
-            {
-                if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") > -.1&& Input.GetAxis("XBOX_DPAD_HORIZONTAL") < .1)
-                {
-                    DpadHclick = false;
-                }
-            }
+            }*/
+            
             if (!DpadVclick)
             {
                 if (Input.GetAxis("XBOX_DPAD_VERTICAL") > .25)
@@ -124,9 +105,9 @@ public class PlayerTargeting : MonoBehaviour {
                 float rh = rotationSpeed * Input.GetAxis("CONTROLLER_RIGHT_STICK_HORIZONTAL");
                 transform.Rotate(0, -rh, 0);
 
-                float lh = rotationSpeed * Input.GetAxis("CONTROLLER_LEFT_STICK_HORIZONTAL");
+                /*float lh = rotationSpeed * Input.GetAxis("CONTROLLER_LEFT_STICK_HORIZONTAL");
                 if (SwitchYRotation) { transform.Rotate(0, 0, -lh); }
-                else { transform.Rotate(-lh, 0, 0); }
+                else { transform.Rotate(-lh, 0, 0); }*/
 
 
                 float lvd = .01f * Input.GetAxis("CONTROLLER_LEFT_STICK_VERTICAL");
@@ -134,6 +115,31 @@ public class PlayerTargeting : MonoBehaviour {
                 /*float lv = 5f * Input.GetAxis("CONTROLLER_LEFT_STICK_VERTICAL");
                 if (SwitchYRotation) { transform.Rotate(-lv, 0, 0); }
                 else { transform.Rotate(0, 0, -lv); }*/
+                if (Input.GetButton("CONTROLLER_RIGHT_STICK_CLICK"))
+                {
+                    transform.rotation = originalRotation;
+                }
+
+                if (!DpadHclick)
+                {
+                    if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") > .25)
+                    {
+                        transform.Rotate(0, 22.5f, 0);
+                        DpadHclick = true;
+                    }
+                    else if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") < -.25)
+                    {
+                        transform.Rotate(0, -22.5f, 0);
+                        DpadHclick = true;
+                    }
+                }
+                else
+                {
+                    if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") > -.1 && Input.GetAxis("XBOX_DPAD_HORIZONTAL") < .1)
+                    {
+                        DpadHclick = false;
+                    }
+                }
             }
             //else { GS.FPController.enabled = true; }
             else if (Input.GetAxis("CONTROLLER_LEFT_TRIGGER") > .55)
@@ -141,8 +147,8 @@ public class PlayerTargeting : MonoBehaviour {
                 GS.disableRiseFall = true;
                 GS.FPController.enabled = false;
                 GS.BallController.GetComponent<FirstPersonController>().enabled = false;
-                float lvd = .01f*Input.GetAxis("CONTROLLER_LEFT_STICK_VERTICAL");
-                distanceFromObject += lvd;
+                //float lvd = .01f*Input.GetAxis("CONTROLLER_LEFT_STICK_VERTICAL");
+                //distanceFromObject += lvd;
 
                 if (Input.GetButton("XBOX_RIGHT_BUMPER"))
                 {
@@ -152,6 +158,10 @@ public class PlayerTargeting : MonoBehaviour {
                 else if (Input.GetButton("XBOX_LEFT_BUMPER"))
                 {
                     transform.localScale = new Vector3(transform.localScale.x - GS.scaleSpeed, transform.localScale.y - GS.scaleSpeed, transform.localScale.z - GS.scaleSpeed);
+                }
+                if (Input.GetButton("CONTROLLER_LEFT_STICK_CLICK"))
+                {
+                    transform.localScale = originalScale;
                 }
             }
             else {
