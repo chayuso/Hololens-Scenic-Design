@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.Networking;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerCameraControl : NetworkBehaviour
@@ -13,6 +14,13 @@ public class PlayerCameraControl : NetworkBehaviour
     private bool RightBumperDown = false;
     private bool LeftBumperDown = false;
     public Vector3 Camrotation;
+
+    private float speed = 200f;
+    public float journeyLength;
+    private bool gradient=false;
+    GameObject CanvasUI;
+    Color gradientColor;
+    private float fadeRate=5f;
     // Use this for initialization
     void Start () {
         if (!transform.parent.GetComponent<NetworkIdentity>().isLocalPlayer)
@@ -25,29 +33,50 @@ public class PlayerCameraControl : NetworkBehaviour
             CurrentPosition = transform.position;
             m_MouseLook.Init(transform.parent.transform, transform);
             CameraShifter = GetComponent<CameraTeleport>();
-            GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>().enabled = true;
+            CanvasUI = GameObject.FindGameObjectWithTag("Canvas");
+            CanvasUI.GetComponent<Canvas>().enabled = true;
+
+            gradientColor = CanvasUI.transform.Find("Gradient").GetComponent<Image>().color;
         }
     }
 	
 	// Update is called once per frame
 	void Update () {
+        
         if (!transform.parent.GetComponent<NetworkIdentity>().isLocalPlayer)
         {
             return;
         }
         else
         {
-            transform.position = CurrentPosition;
+            //transform.position = CurrentPosition;
+            float distCoveredCamera = Time.deltaTime * (speed * 0.1f);
+            float fracJourneyCamera = distCoveredCamera / journeyLength;
+            transform.position = Vector3.Lerp(transform.position, CurrentPosition, fracJourneyCamera);
+
             RotateView();
+            if (gradient)
+            {
+                if (Vector3.Distance(transform.position, CurrentPosition) < .1f)
+                {
+                    gradient = false;
+                }
+                CanvasUI.transform.Find("Gradient").GetComponent<Image>().color=Color.Lerp(CanvasUI.transform.Find("Gradient").GetComponent<Image>().color, gradientColor, fadeRate*Time.deltaTime);
+                //CanvasUI.transform.Find("Gradient").gameObject.SetActive(true);
+            }
+            else { CanvasUI.transform.Find("Gradient").GetComponent<Image>().color=Color.Lerp(CanvasUI.transform.Find("Gradient").GetComponent<Image>().color, Color.clear, fadeRate*Time.deltaTime); }
             if (Input.GetAxis("Horizontal") <.19  && Input.GetAxis("Horizontal") > -.19
                 && Input.GetAxis("Vertical") < .19 && Input.GetAxis("Vertical") > -.19
                 && !Input.GetButton("XBOX_RIGHT_BUMPER")
                 && !Input.GetButton("XBOX_LEFT_BUMPER"))
             {
                 if (Vector3.Distance(transform.position, transform.parent.transform.position) > .01f)
-                {
+                {   
                     CurrentPosition = new Vector3(transform.parent.position.x, transform.parent.position.y , transform.parent.position.z );
                     transform.parent.GetComponent<Renderer>().enabled = false;
+
+                    journeyLength = Vector3.Distance(transform.position, CurrentPosition);
+                    gradient = true;
                 }
             }
             else
