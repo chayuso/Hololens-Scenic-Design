@@ -16,6 +16,8 @@ public class MenuControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //Script From
+        //https://forum.unity.com/threads/networkmanagerhud-source.333482/
         if (!NetworkClient.active && !NetworkServer.active)
         {
             if (NM.matchMaker == null)

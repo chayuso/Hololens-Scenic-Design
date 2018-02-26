@@ -21,6 +21,7 @@ public class PlayerCameraControl : NetworkBehaviour
     GameObject CanvasUI;
     Color gradientColor;
     private float fadeRate=5f;
+    
     // Use this for initialization
     void Start () {
         if (!transform.parent.GetComponent<NetworkIdentity>().isLocalPlayer)
@@ -53,8 +54,11 @@ public class PlayerCameraControl : NetworkBehaviour
             float distCoveredCamera = Time.deltaTime * (speed * 0.1f);
             float fracJourneyCamera = distCoveredCamera / journeyLength;
             transform.position = Vector3.Lerp(transform.position, CurrentPosition, fracJourneyCamera);
+            if (!transform.parent.gameObject.GetComponent<PlayerCharacterControl>().disableMove)
+            {
+                RotateView();
+            }
 
-            RotateView();
             if (gradient)
             {
                 transform.parent.GetComponent<Renderer>().enabled = true;
@@ -65,7 +69,6 @@ public class PlayerCameraControl : NetworkBehaviour
                 }
                 
                 CanvasUI.transform.Find("Gradient").GetComponent<Image>().color=Color.Lerp(CanvasUI.transform.Find("Gradient").GetComponent<Image>().color, gradientColor, fadeRate*3*Time.deltaTime);
-                //CanvasUI.transform.Find("Gradient").gameObject.SetActive(true);
             }
             else
             {
@@ -75,23 +78,27 @@ public class PlayerCameraControl : NetworkBehaviour
             if (Input.GetAxis("Horizontal") <.19  && Input.GetAxis("Horizontal") > -.19
                 && Input.GetAxis("Vertical") < .19 && Input.GetAxis("Vertical") > -.19
                 && !Input.GetButton("XBOX_RIGHT_BUMPER")
-                && !Input.GetButton("XBOX_LEFT_BUMPER"))
+                && !Input.GetButton("XBOX_LEFT_BUMPER")
+                &&  Input.GetAxis("XBOX_DPAD_VERTICAL") < .25
+                && Input.GetAxis("XBOX_DPAD_VERTICAL") > -.25)
             {
                 if (Vector3.Distance(transform.position, transform.parent.transform.position) > .01f)
-                {   
-                    CurrentPosition = new Vector3(transform.parent.position.x, transform.parent.position.y , transform.parent.position.z );
-                    //transform.parent.GetComponent<Renderer>().enabled = false;
-
-                    journeyLength = Vector3.Distance(transform.position, CurrentPosition);
-                    gradient = true;
+                {
+                        CurrentPosition = new Vector3(transform.parent.position.x, transform.parent.position.y , transform.parent.position.z );
+                        journeyLength = Vector3.Distance(transform.position, CurrentPosition);
+                        gradient = true;
+                        
                 }
             }
             else
             {
-                transform.parent.GetComponent<Renderer>().enabled = true;
+                if (Input.GetAxis("CONTROLLER_RIGHT_TRIGGER") < .55 && Input.GetAxis("CONTROLLER_LEFT_TRIGGER") < .55)
+                {
+                    transform.parent.GetComponent<Renderer>().enabled = true;
+                }
             }
 
-            if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") > .25 && !RightBumperDown)
+            if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") > .25 && !RightBumperDown && !transform.parent.gameObject.GetComponent<PlayerCharacterControl>().disableMove)
             {
                 RightBumperDown = true;
                 CameraShifter.NextCam();
@@ -100,7 +107,7 @@ public class PlayerCameraControl : NetworkBehaviour
             {
                 RightBumperDown = false;
             }
-            if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") < -.25 && !LeftBumperDown)
+            if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") < -.25 && !LeftBumperDown && !transform.parent.gameObject.GetComponent<PlayerCharacterControl>().disableMove)
             {
                 LeftBumperDown = true;
                 CameraShifter.PreviousCam();
