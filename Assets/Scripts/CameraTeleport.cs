@@ -8,6 +8,13 @@ public class CameraTeleport :NetworkBehaviour
     public GameObject[] ScenePlayers;
     public GameObject CPlayer;
     public int camNum = 0;
+
+    private float speed = 200f;
+    public float journeyLength;
+    private bool gradient = false;
+    GameObject CanvasUI;
+    Color gradientColor;
+    private float fadeRate = 5f;
     // Use this for initialization
     void Start()
     {

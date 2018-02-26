@@ -57,14 +57,21 @@ public class PlayerCameraControl : NetworkBehaviour
             RotateView();
             if (gradient)
             {
+                transform.parent.GetComponent<Renderer>().enabled = true;
                 if (Vector3.Distance(transform.position, CurrentPosition) < .1f)
                 {
                     gradient = false;
+                    transform.parent.GetComponent<Renderer>().enabled = false;
                 }
-                CanvasUI.transform.Find("Gradient").GetComponent<Image>().color=Color.Lerp(CanvasUI.transform.Find("Gradient").GetComponent<Image>().color, gradientColor, fadeRate*Time.deltaTime);
+                
+                CanvasUI.transform.Find("Gradient").GetComponent<Image>().color=Color.Lerp(CanvasUI.transform.Find("Gradient").GetComponent<Image>().color, gradientColor, fadeRate*3*Time.deltaTime);
                 //CanvasUI.transform.Find("Gradient").gameObject.SetActive(true);
             }
-            else { CanvasUI.transform.Find("Gradient").GetComponent<Image>().color=Color.Lerp(CanvasUI.transform.Find("Gradient").GetComponent<Image>().color, Color.clear, fadeRate*Time.deltaTime); }
+            else
+            {
+                transform.parent.GetComponent<Renderer>().enabled = false;
+                CanvasUI.transform.Find("Gradient").GetComponent<Image>().color=Color.Lerp(CanvasUI.transform.Find("Gradient").GetComponent<Image>().color, Color.clear, fadeRate/2*Time.deltaTime);
+            }
             if (Input.GetAxis("Horizontal") <.19  && Input.GetAxis("Horizontal") > -.19
                 && Input.GetAxis("Vertical") < .19 && Input.GetAxis("Vertical") > -.19
                 && !Input.GetButton("XBOX_RIGHT_BUMPER")
@@ -73,7 +80,7 @@ public class PlayerCameraControl : NetworkBehaviour
                 if (Vector3.Distance(transform.position, transform.parent.transform.position) > .01f)
                 {   
                     CurrentPosition = new Vector3(transform.parent.position.x, transform.parent.position.y , transform.parent.position.z );
-                    transform.parent.GetComponent<Renderer>().enabled = false;
+                    //transform.parent.GetComponent<Renderer>().enabled = false;
 
                     journeyLength = Vector3.Distance(transform.position, CurrentPosition);
                     gradient = true;
