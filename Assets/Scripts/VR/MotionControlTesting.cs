@@ -16,6 +16,7 @@ public class MotionControlTesting : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        test.SetActive(false);
         if (Input.GetButton("MC_LEFT_STICK_CLICK"))
         {
             test.SetActive(true);

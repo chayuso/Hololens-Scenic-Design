@@ -26,6 +26,10 @@ public class MenuControl : MonoBehaviour {
                 {
                     NM.StartMatchMaker();
                 }
+                if (Input.GetButtonDown("MC_LEFT_TRIGGER_BUTTON")|| Input.GetButtonDown("MC_RIGHT_TRIGGER_BUTTON"))
+                {
+                    NM.StartHost();
+                }
             }
             else
             {
@@ -48,7 +52,7 @@ public class MenuControl : MonoBehaviour {
                     {
                         foreach (var match in manager.matches)
                         {
-                            if (Input.GetButtonDown("XBOX_A")&&match.name==manager.matchName)//Change this later//Only for testing
+                            if (Input.GetButtonDown("XBOX_A") && match.name==manager.matchName)//Change this later//Only for testing
                             {
                                 manager.matchSize = (uint)match.currentSize;
                                 manager.matchMaker.JoinMatch(match.networkId, "", "", "", 0, 0, manager.OnMatchJoined);
