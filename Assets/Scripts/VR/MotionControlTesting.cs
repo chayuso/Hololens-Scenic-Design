@@ -11,19 +11,23 @@ public class MotionControlTesting : MonoBehaviour {
 	void Start () {
 
         interactionSourceStates = InteractionManager.GetCurrentReading();
+        test.SetActive(false);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        test.SetActive(false);
-        interactionSourceStates = InteractionManager.GetCurrentReading();
+        if (Input.GetButton("MC_LEFT_STICK_CLICK"))
+        {
+            test.SetActive(true);
+        }
+        /*interactionSourceStates = InteractionManager.GetCurrentReading();
         foreach (InteractionSourceState interactionSourceState in interactionSourceStates)
         {
             if (interactionSourceState.selectPressed)
             {
                 test.SetActive(true);
             }
-        }
+        }*/
 
     }
 }
