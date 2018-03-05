@@ -29,9 +29,20 @@ public class ObjectPointerManipulation : MonoBehaviour {
             if (heldbyHand == "Left")
             {
                 LeftObjectDrag();
+                if (Input.GetButtonUp("MC_LEFT_MENU"))
+                {
+                    SpawnDuplicate();
+                }
+                if (Input.GetButton("MC_LEFT_STICK_CLICK"))
+                {
+                    isDragging = false;
+                    GameObject g = GameObject.FindGameObjectWithTag("Player");
+                    g.GetComponent<PlayerState>().LeftHandHolding = false;
+                    Destroy(gameObject);
+                }
                 if (Input.GetButton("MC_LEFT_TOUCHPAD_CLICK"))
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, transform.parent.transform.position, Input.GetAxis("MC_LEFT_TOUCHPAD_HORIZONTAL")*distanceSpeed * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, transform.parent.transform.position, Input.GetAxis("MC_LEFT_TOUCHPAD_VERTICAL")*distanceSpeed * Time.deltaTime);
 
                 }
                 else
@@ -87,9 +98,20 @@ public class ObjectPointerManipulation : MonoBehaviour {
             if (heldbyHand == "Right")
             {
                 RightObjectDrag();
+                if (Input.GetButtonUp("MC_RIGHT_MENU"))
+                {
+                    SpawnDuplicate();
+                }
+                if (Input.GetButton("MC_RIGHT_STICK_CLICK"))
+                {
+                    isDragging = false;
+                    GameObject g = GameObject.FindGameObjectWithTag("Player");
+                    g.GetComponent<PlayerState>().RightHandHolding = false;
+                    Destroy(gameObject);
+                }
                 if (Input.GetButton("MC_RIGHT_TOUCHPAD_CLICK"))
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, transform.parent.transform.position, Input.GetAxis("MC_RIGHT_TOUCHPAD_HORIZONTAL") * distanceSpeed * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, transform.parent.transform.position, Input.GetAxis("MC_RIGHT_TOUCHPAD_VERTICAL") * distanceSpeed * Time.deltaTime);
 
                 }
                 else
@@ -223,5 +245,15 @@ public class ObjectPointerManipulation : MonoBehaviour {
                     trj.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
             }
         }
+    }
+    public void SpawnDuplicate()
+    {
+        var Dup = (GameObject)Instantiate(
+            gameObject,
+            transform.position,
+            transform.rotation);
+        Dup.GetComponent<ObjectPointerManipulation>().canPickup = false;
+        Dup.GetComponent<ObjectPointerManipulation>().isDragging = false;
+
     }
 }
