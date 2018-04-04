@@ -12,7 +12,8 @@ public class MenuControl : MonoBehaviour {
         NM = gameObject.GetComponent<NetworkManager>();
         CC = new ConnectionConfig();
         manager = NM;
-	}
+        NM.StartHost();
+    }
 	
 	// Update is called once per frame
 	void Update () {
