@@ -72,12 +72,12 @@ public class PlayerVRCharacter : NetworkBehaviour
         else
         {
             if (!disableMove && forwardtick)
-                transform.Translate(new Vector3(0, 0, z), transform.Find("MixedRealityCameraParent").Find("MixedRealityCamera").transform);
+                transform.Translate(new Vector3(0, 0, z), transform.Find("MixedRealityCameraParent").Find("PlaneStabilizer").transform);
         }
         if (!disableMove && forwardtick)
         {
             
-            transform.Translate(new Vector3(x, 0, 0), transform.Find("MixedRealityCameraParent").Find("MixedRealityCamera").transform);
+            transform.Translate(new Vector3(x, 0, 0), transform.Find("MixedRealityCameraParent").Find("PlaneStabilizer").transform);
             if (Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") <= .19 && Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") >= -.19
                 && Input.GetAxis("MC_LEFT_STICK_VERTICAL") <= .19 && Input.GetAxis("MC_LEFT_STICK_VERTICAL") >= -.19
                 )

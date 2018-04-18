@@ -117,7 +117,7 @@ public class MotionControlTesting : NetworkBehaviour
             }
 
             //if (Input.GetAxis("XBOX_DPAD_HORIZONTAL") > .25 && !RightBumperDown && !transform.parent.gameObject.GetComponent<PlayerCharacterControl>().disableMove)
-            if(Input.GetButton("MC_LEFT_CLICK"))
+            if(Input.GetButton("MC_LEFT_STICK_CLICK"))
             {
                 //RightBumperDown = true;
                 CameraShifter.NextCam();
