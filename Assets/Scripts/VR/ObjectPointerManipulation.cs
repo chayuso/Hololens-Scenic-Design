@@ -18,7 +18,7 @@ public class ObjectPointerManipulation : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.rotation = ObjectRotation;
-        LeftControl();
+        //LeftControl();
         RightControl();
        
     }
@@ -146,7 +146,7 @@ public class ObjectPointerManipulation : MonoBehaviour {
                     if ((Input.GetButtonDown("MC_RIGHT_TRIGGER_BUTTON") || Input.GetButtonDown("MC_RIGHT_GRIP")) && g.GetComponent<PlayerState>().CurrentHand == "Right")
                     {
                         GameObject MC = GameObject.FindGameObjectWithTag("GameController");
-                        Vector3 RPosition = MC.transform.Find("RightController").transform.position;
+                        Vector3 RPosition = g.transform.Find("MixedRealityCameraParent").Find("MotionControllers").Find("RightController").transform.position;//MC.transform.Find("RightController").transform.position;
                         distanceFromObject = Vector3.Distance(gameObject.transform.position, RPosition);
                         canPickup = false;
                         isDragging = true;
@@ -172,7 +172,7 @@ public class ObjectPointerManipulation : MonoBehaviour {
         /*Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distanceFromObject);
         Vector3 objPosition = g.gameObject.GetComponent<Camera>().ScreenToWorldPoint(mousePosition);
         transform.position = objPosition;*/
-        transform.parent = GameObject.FindGameObjectWithTag("GameController").transform.Find("RightController").transform;
+        transform.parent = GameObject.FindGameObjectWithTag("Player").transform.Find("MixedRealityCameraParent").Find("MotionControllers").Find("RightController").transform;
 
     }
     public void OnPointerEnter()
@@ -180,21 +180,26 @@ public class ObjectPointerManipulation : MonoBehaviour {
         if (!isDragging)
         {
             GameObject g = GameObject.FindGameObjectWithTag("Player");
-            if (g.GetComponent<PlayerState>().CurrentHand == "Left")
+            /*if (g.GetComponent<PlayerState>().CurrentHand == "Left")
             {
                 if (!g.GetComponent<PlayerState>().LeftHandHolding)
                 {
                     canPickup = true;
                     TurnOnShader();
                 }
-            }
-            else if (g.GetComponent<PlayerState>().CurrentHand == "Right")
+            }*/
+            if (g.GetComponent<PlayerState>().CurrentHand == "Right")
             {
                 if (!g.GetComponent<PlayerState>().RightHandHolding)
                 {
                     canPickup = true;
                     TurnOnShader();
                 }
+            }
+            else
+            {
+                canPickup = true;
+                TurnOnShader();
             }
         }
     }

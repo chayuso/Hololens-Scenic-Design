@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Canvas
   - MoveableObject
+  - raycam
   layers:
   - Default
   - TransparentFX
