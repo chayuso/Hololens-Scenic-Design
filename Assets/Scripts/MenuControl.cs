@@ -12,7 +12,7 @@ public class MenuControl : MonoBehaviour {
         NM = gameObject.GetComponent<NetworkManager>();
         CC = new ConnectionConfig();
         manager = NM;
-        NM.StartHost();
+        //NM.StartHost();
     }
 	
 	// Update is called once per frame
@@ -23,14 +23,14 @@ public class MenuControl : MonoBehaviour {
         {
             if (NM.matchMaker == null)
             {
-                if (Input.GetButtonDown("XBOX_X"))
+                if (Input.GetButtonDown("MC_LEFT_TRIGGER_BUTTON"))
                 {
                     NM.StartMatchMaker();
                 }
-                if (Input.GetButtonDown("MC_LEFT_TRIGGER_BUTTON")|| Input.GetButtonDown("MC_RIGHT_TRIGGER_BUTTON"))
-                {
-                    NM.StartHost();
-                }
+                //if (Input.GetButtonDown("MC_LEFT_TRIGGER_BUTTON")|| Input.GetButtonDown("MC_RIGHT_TRIGGER_BUTTON"))
+                //{
+                //    NM.StartHost();
+                //}
             }
             else
             {
@@ -38,11 +38,11 @@ public class MenuControl : MonoBehaviour {
                 {
                     if (NM.matches == null)
                     {
-                        if (Input.GetButtonDown("XBOX_X"))
+                        if (Input.GetButtonDown("MC_LEFT_TRIGGER_BUTTON"))
                         {
                             NM.matchMaker.CreateMatch(NM.matchName, NM.matchSize,true,"","","",0,0, manager.OnMatchCreate);
                         }
-                        if (Input.GetButtonDown("XBOX_Y"))
+                        if (Input.GetButtonDown("MC_RIGHT_TRIGGER_BUTTON"))
                         {
                             manager.matchMaker.ListMatches(0, 20, "", false, 0, 0, manager.OnMatchList);
                         }
@@ -53,7 +53,7 @@ public class MenuControl : MonoBehaviour {
                     {
                         foreach (var match in manager.matches)
                         {
-                            if (Input.GetButtonDown("XBOX_A") && match.name==manager.matchName)//Change this later//Only for testing
+                            if (Input.GetButtonDown("MC_RIGHT_TRIGGER_BUTTON") && match.name==manager.matchName)//Change this later//Only for testing
                             {
                                 manager.matchSize = (uint)match.currentSize;
                                 manager.matchMaker.JoinMatch(match.networkId, "", "", "", 0, 0, manager.OnMatchJoined);
