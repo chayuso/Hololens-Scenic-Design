@@ -54,6 +54,9 @@ namespace HoloToolkit.Unity.InputModule
         public bool EnableRotation = true;
         public bool EnableStrafe = true;
 
+        [Tooltip("Makes sure you don't get put 'on top' of holograms, just on the floor")]
+        public bool StayOnTheFloor = false;
+
         public float RotationSize = 45.0f;
         public float StrafeAmount = 0.5f;
 
@@ -62,7 +65,7 @@ namespace HoloToolkit.Unity.InputModule
         private Animator animationController;
 
         [SerializeField]
-        private bool useCustomMapping;
+        private bool useCustomMapping = false;
 
         /// <summary>
         /// The fade control allows us to fade out and fade in the scene.
@@ -201,7 +204,9 @@ namespace HoloToolkit.Unity.InputModule
 
                 if (EnableStrafe && currentPointingSource == null)
                 {
-                    if (eventData.Position.y < -0.8 && Math.Abs(eventData.Position.x) < 0.3)
+
+                    //if (eventData.Position.y < -0.8 && Math.Abs(eventData.Position.x) < 0.3)
+                    if (Input.GetAxis("MC_LEFT_STICK_VERTICAL") < -.8 && Math.Abs(Input.GetAxis("MC_LEFT_STICK_HORIZONTAL")) < 0.3)
                     {
                         DoStrafe(Vector3.back * StrafeAmount);
                     }
@@ -209,11 +214,13 @@ namespace HoloToolkit.Unity.InputModule
 
                 if (EnableRotation && currentPointingSource == null)
                 {
-                    if (eventData.Position.x < -0.8 && Math.Abs(eventData.Position.y) < 0.3)
+                    //if (eventData.Position.x < -0.8 && Math.Abs(eventData.Position.y) < 0.3)
+                    if(Input.GetAxis("MC_LEFT_STICK_HORIZONTAL")<-.8 && Math.Abs(Input.GetAxis("MC_LEFT_STICK_VERTICAL"))<0.3)
                     {
                         DoRotation(-RotationSize);
                     }
-                    else if (eventData.Position.x > 0.8 && Math.Abs(eventData.Position.y) < 0.3)
+                    //else if (eventData.Position.x > 0.8 && Math.Abs(eventData.Position.y) < 0.3)
+                    else if(Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") > .8 && Math.Abs(Input.GetAxis("MC_LEFT_STICK_VERTICAL")) < 0.3)
                     {
                         DoRotation(RotationSize);
                     }
@@ -276,7 +283,7 @@ namespace HoloToolkit.Unity.InputModule
                     {
                         Transform transformToRotate = CameraCache.Main.transform;
                         transformToRotate.rotation = Quaternion.Euler(0, transformToRotate.rotation.eulerAngles.y, 0);
-                        transform.Translate(strafeAmount, CameraCache.Main.transform);
+                        transform.parent.Translate(strafeAmount, CameraCache.Main.transform);
                     }, null); // Action after fade in
             }
         }
@@ -287,11 +294,18 @@ namespace HoloToolkit.Unity.InputModule
         /// <param name="worldPosition"></param>
         public void SetWorldPosition(Vector3 worldPosition)
         {
+            var originalY = transform.position.y;
+
             // There are two things moving the camera: the camera parent (that this script is attached to)
             // and the user's head (which the MR device is attached to. :)). When setting the world position,
             // we need to set it relative to the user's head in the scene so they are looking/standing where 
             // we expect.
-            transform.position = worldPosition - (CameraCache.Main.transform.position - transform.position);
+            var newPosition = worldPosition - (CameraCache.Main.transform.position - transform.position);
+            if (StayOnTheFloor)
+            {
+                newPosition.y = originalY;
+            }
+            transform.position = newPosition;
         }
 
         private void EnableMarker()

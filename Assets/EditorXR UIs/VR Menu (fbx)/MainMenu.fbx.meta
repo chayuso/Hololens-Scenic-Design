@@ -1,0 +1,145 @@
+fileFormatVersion: 2
+guid: ab34306b05f515041809ed5467ee758f
+timeCreated: 1524693241
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: MenuFaces
+    100004: MenuFacesGradientBorder
+    100006: MenuFaceTitleGradientShape
+    100008: MenuFrameOptimized
+    100010: MenuInputArrowLeft
+    100012: MenuInputArrowRight
+    100014: MenuInputBase
+    100016: MenuInputBaseOuter
+    100018: MenuInputLeft
+    100020: MenuInputRight
+    400000: //RootNode
+    400002: MenuFaces
+    400004: MenuFacesGradientBorder
+    400006: MenuFaceTitleGradientShape
+    400008: MenuFrameOptimized
+    400010: MenuInputArrowLeft
+    400012: MenuInputArrowRight
+    400014: MenuInputBase
+    400016: MenuInputBaseOuter
+    400018: MenuInputLeft
+    400020: MenuInputRight
+    2100000: MenuFrameOuter
+    2100002: MenuArrow
+    2100004: MenuInputLeft
+    2100006: MenuFrame
+    2100008: MenuFacesGradientBorder
+    2100010: MenuInputRight
+    2100012: MenuFaces
+    2300000: MenuFaces
+    2300002: MenuFacesGradientBorder
+    2300004: MenuInputArrowLeft
+    2300006: MenuInputArrowRight
+    2300008: MenuInputBase
+    2300010: MenuInputBaseOuter
+    2300012: MenuInputLeft
+    2300014: MenuInputRight
+    3300000: MenuFaces
+    3300002: MenuFacesGradientBorder
+    3300004: MenuInputArrowLeft
+    3300006: MenuInputArrowRight
+    3300008: MenuInputBase
+    3300010: MenuInputBaseOuter
+    3300012: MenuInputLeft
+    3300014: MenuInputRight
+    4300000: MenuInputBaseOuter
+    4300002: MenuInputArrowLeft
+    4300004: MenuInputArrowRight
+    4300006: MenuInputLeft
+    4300008: MenuInputBase
+    4300010: MenuFaceTitleGradientShape
+    4300012: MenuInputRight
+    4300014: MenuFacesGradientBorder
+    4300016: MenuFaces
+    4300018: MenuFrameOptimized
+    9500000: //RootNode
+    13700000: MenuFaceTitleGradientShape
+    13700002: MenuFrameOptimized
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

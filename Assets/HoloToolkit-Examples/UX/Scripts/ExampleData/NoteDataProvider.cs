@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// Licensed under the MIT License. See LICENSE in the project root for license information.
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -89,7 +91,7 @@ namespace HoloToolkit.Examples.InteractiveElements
             InteractiveSet interactiveSet = TargetGroup.GetInteractiveSet();
             foreach (int index in interactiveSet.SelectedIndices)
             {
-                Debug.Log("Send new note: " + TargetGroup.Titles[index]);
+                Debug.Log("Send new note: " + TargetGroup.Titles[index].Replace("\n", " "));
             }
             if (interactiveSet.SelectedIndices.Count == 0)
             {

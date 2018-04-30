@@ -276,6 +276,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1893695626289598
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4159266499974360}
+  - component: {fileID: 23395166834994560}
+  - component: {fileID: 102432420142824834}
+  - component: {fileID: 114021516830333944}
+  m_Layer: 0
+  m_Name: 3DTextPrefab (1)
+  m_TagString: RightCameraUI
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1934056524077040
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +387,19 @@ Transform:
   m_Father: {fileID: 4024453116130922}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4159266499974360
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893695626289598}
+  m_LocalRotation: {x: 0.6358088, y: 0, z: 0, w: 0.7718466}
+  m_LocalPosition: {x: 0, y: 0.02, z: -0.05}
+  m_LocalScale: {x: 0.000630001, y: 0.0006300002, z: 0.00063000113}
+  m_Children: []
+  m_Father: {fileID: 4250823142366762}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 78.96, y: 0, z: 0}
 --- !u!4 &4219465657778608
 Transform:
   m_ObjectHideFlags: 1
@@ -417,7 +448,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4159266499974360}
   m_Father: {fileID: 4024453116130922}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -634,6 +666,40 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!23 &23395166834994560
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893695626289598}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 1017ef825d041c749bab30bf03aca0d3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!23 &23702559567019478
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -730,6 +796,29 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1442295628736442}
   m_Enabled: 1
+--- !u!102 &102432420142824834
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893695626289598}
+  m_Text: 'Rotate Only
+
+    Y axis Constraint'
+  m_OffsetZ: 0
+  m_CharacterSize: 2.58
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 1
+  m_TabSize: 4
+  m_FontSize: 103
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: 86574c70442309b45be5a1c37a37a40b, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
 --- !u!114 &114001584484702824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -774,6 +863,17 @@ MonoBehaviour:
   Camrotation: {x: 0, y: 0, z: 0}
   journeyLength: 0
   gradient: 0
+--- !u!114 &114021516830333944
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893695626289598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab2246c4666a71344b62f6e84ed863ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114024064056137742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1025,6 +1125,7 @@ MonoBehaviour:
   LeftHandHolding: 0
   RightHandHolding: 0
   CurrentHand: None
+  ManipulationMode: YRotation
 --- !u!114 &114525412010897136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1139,8 +1240,9 @@ MonoBehaviour:
   EnableTeleport: 0
   EnableRotation: 1
   EnableStrafe: 0
+  StayOnTheFloor: 0
   RotationSize: 45
-  StrafeAmount: 0.5
+  StrafeAmount: 2
   teleportMarker: {fileID: 1503526479864244, guid: 10d95b99055c6ad40b735cc8b3593745,
     type: 2}
   useCustomMapping: 0

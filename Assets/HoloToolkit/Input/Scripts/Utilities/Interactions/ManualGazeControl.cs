@@ -123,7 +123,7 @@ namespace HoloToolkit.Unity.InputModule
 
             // Now apply the displacements to the camera
             cameraTransform.Rotate(rotate.x, 0.0f, 0.0f, Space.Self);
-            transform.parent.parent.Rotate(0.0f, rotate.y, 0.0f, Space.World);
+            cameraTransform.Rotate(0.0f, rotate.y, 0.0f, Space.World);
             cameraTransform.Translate(translate, Space.Self);
 
             // Apply updated local Z-axis tilt rotation.

@@ -7,7 +7,7 @@ TagManager:
   - Canvas
   - MoveableObject
   - raycam
-  - dummyplayer
+  - RightCameraUI
   layers:
   - Default
   - TransparentFX

@@ -76,8 +76,8 @@ public class PlayerVRCharacter : NetworkBehaviour
         }
         if (!disableMove && forwardtick)
         {
-            
-            transform.Translate(new Vector3(x, 0, 0), transform.Find("MixedRealityCameraParent").Find("PlaneStabilizer").transform);
+            //Transform transformToRotate = Camera.main.transform;
+            transform.Translate(new Vector3(x, 0, 0), Camera.main.transform);
             if (Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") <= .19 && Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") >= -.19
                 && Input.GetAxis("MC_LEFT_STICK_VERTICAL") <= .19 && Input.GetAxis("MC_LEFT_STICK_VERTICAL") >= -.19
                 )
