@@ -35,6 +35,7 @@ public class MotionControlTesting : NetworkBehaviour
     private float fadeRate = 5f;
     Color gradientColor;
     GameObject raycamera;
+    float elevation = -.5f;
     // Use this for initialization
     void Start()
     {
@@ -45,7 +46,7 @@ public class MotionControlTesting : NetworkBehaviour
         else
         {
             gameObject.GetComponent<Camera>().enabled = true;
-            CurrentPosition = transform.position;
+            CurrentPosition = new Vector3(transform.position.x, transform.position.y + elevation, transform.position.z);
             m_MouseLook.Init(transform.parent.parent.transform, transform);
             CameraShifter = GetComponent<CameraTeleport>();
             raycamera = GameObject.FindGameObjectWithTag("raycam");
@@ -66,8 +67,8 @@ public class MotionControlTesting : NetworkBehaviour
             //transform.position = CurrentPosition;
             float distCoveredCamera = Time.deltaTime * (speed * 0.1f);
             float fracJourneyCamera = distCoveredCamera / journeyLength;
-            transform.position = Vector3.Lerp(transform.position, CurrentPosition, fracJourneyCamera);
-            transform.parent.position = Vector3.Lerp(transform.parent.position, CurrentPosition, fracJourneyCamera);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(CurrentPosition.x,CurrentPosition.y+elevation,CurrentPosition.z), fracJourneyCamera);
+            transform.parent.position = Vector3.Lerp(transform.parent.position, new Vector3(CurrentPosition.x, CurrentPosition.y + elevation, CurrentPosition.z), fracJourneyCamera);
             if (!transform.parent.parent.gameObject.GetComponent<PlayerVRCharacter>().disableMove)
             {
                 RotateView();
@@ -76,7 +77,7 @@ public class MotionControlTesting : NetworkBehaviour
             if (gradient)
             {
                 transform.parent.parent.GetComponent<Renderer>().enabled = true;
-                if (Vector3.Distance(transform.position, CurrentPosition) < .1f)
+                if (Vector3.Distance(transform.position, new Vector3(CurrentPosition.x, CurrentPosition.y + elevation, CurrentPosition.z)) < .1f)
                 {
                     gradient = false;
                     transform.parent.parent.GetComponent<Renderer>().enabled = false;
@@ -96,10 +97,10 @@ public class MotionControlTesting : NetworkBehaviour
                 //&& Input.GetAxis("XBOX_DPAD_VERTICAL") > -.25
                 )
             {
-                if (Vector3.Distance(transform.position, transform.parent.parent.transform.position) > .01f)
+                if (Vector3.Distance(transform.position, new Vector3(transform.parent.parent.transform.position.x, transform.parent.parent.transform.position.y+elevation, transform.parent.parent.transform.position.z)) > .01f)
                 {
                     CurrentPosition = new Vector3(transform.parent.parent.position.x, transform.parent.parent.position.y, transform.parent.parent.position.z);
-                    journeyLength = Vector3.Distance(transform.position, CurrentPosition);
+                    journeyLength = Vector3.Distance(transform.position, new Vector3(CurrentPosition.x, CurrentPosition.y + elevation, CurrentPosition.z));
                     
                     
                     gradient = true;

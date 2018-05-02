@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Networking;
+using HoloToolkit.Unity;
 using HoloToolkit.Unity.InputModule;
 using UnityEngine;
 using HoloToolkit.Unity.InputModule;
@@ -72,12 +73,12 @@ public class PlayerVRCharacter : NetworkBehaviour
         else
         {
             if (!disableMove && forwardtick)
-                transform.Translate(new Vector3(0, 0, z), transform.Find("MixedRealityCameraParent").Find("PlaneStabilizer").transform);
+                transform.Translate(new Vector3(0, 0, z), CameraCache.Main.transform);
         }
         if (!disableMove && forwardtick)
         {
             //Transform transformToRotate = Camera.main.transform;
-            transform.Translate(new Vector3(x, 0, 0), Camera.main.transform);
+            transform.Translate(new Vector3(x, 0, 0), CameraCache.Main.transform);
             if (Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") <= .19 && Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") >= -.19
                 && Input.GetAxis("MC_LEFT_STICK_VERTICAL") <= .19 && Input.GetAxis("MC_LEFT_STICK_VERTICAL") >= -.19
                 )

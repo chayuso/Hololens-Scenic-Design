@@ -205,8 +205,8 @@ namespace HoloToolkit.Unity.InputModule
                 if (EnableStrafe && currentPointingSource == null)
                 {
 
-                    //if (eventData.Position.y < -0.8 && Math.Abs(eventData.Position.x) < 0.3)
-                    if (Input.GetAxis("MC_LEFT_STICK_VERTICAL") < -.8 && Math.Abs(Input.GetAxis("MC_LEFT_STICK_HORIZONTAL")) < 0.3)
+                    if (eventData.Position.y < -0.8 && Math.Abs(eventData.Position.x) < 0.3)
+                    //if (Input.GetAxis("MC_LEFT_STICK_VERTICAL") < -.8 && Math.Abs(Input.GetAxis("MC_LEFT_STICK_HORIZONTAL")) < 0.3)
                     {
                         DoStrafe(Vector3.back * StrafeAmount);
                     }
@@ -214,13 +214,13 @@ namespace HoloToolkit.Unity.InputModule
 
                 if (EnableRotation && currentPointingSource == null)
                 {
-                    //if (eventData.Position.x < -0.8 && Math.Abs(eventData.Position.y) < 0.3)
-                    if(Input.GetAxis("MC_LEFT_STICK_HORIZONTAL")<-.8 && Math.Abs(Input.GetAxis("MC_LEFT_STICK_VERTICAL"))<0.3)
+                    if (eventData.Position.x < -0.8 && Math.Abs(eventData.Position.y) < 0.3)
+                    //if(Input.GetAxis("MC_LEFT_STICK_HORIZONTAL")<-.8 && Math.Abs(Input.GetAxis("MC_LEFT_STICK_VERTICAL"))<0.3)
                     {
                         DoRotation(-RotationSize);
                     }
-                    //else if (eventData.Position.x > 0.8 && Math.Abs(eventData.Position.y) < 0.3)
-                    else if(Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") > .8 && Math.Abs(Input.GetAxis("MC_LEFT_STICK_VERTICAL")) < 0.3)
+                    else if (eventData.Position.x > 0.8 && Math.Abs(eventData.Position.y) < 0.3)
+                    //else if(Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") > .8 && Math.Abs(Input.GetAxis("MC_LEFT_STICK_VERTICAL")) < 0.3)
                     {
                         DoRotation(RotationSize);
                     }
@@ -283,7 +283,15 @@ namespace HoloToolkit.Unity.InputModule
                     {
                         Transform transformToRotate = CameraCache.Main.transform;
                         transformToRotate.rotation = Quaternion.Euler(0, transformToRotate.rotation.eulerAngles.y, 0);
-                        transform.parent.Translate(strafeAmount, CameraCache.Main.transform);
+                        if (transform.parent)
+                        {
+                            transform.parent.Translate(strafeAmount, CameraCache.Main.transform);
+                        }
+                        else
+                        {
+                            transform.Translate(strafeAmount, CameraCache.Main.transform);
+                        }
+                       
                     }, null); // Action after fade in
             }
         }
