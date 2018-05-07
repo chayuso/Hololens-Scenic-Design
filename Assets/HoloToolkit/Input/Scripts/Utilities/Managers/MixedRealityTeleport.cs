@@ -313,7 +313,14 @@ namespace HoloToolkit.Unity.InputModule
             {
                 newPosition.y = originalY;
             }
-            transform.position = newPosition;
+            if (transform.parent)
+            {
+                transform.parent.position = newPosition;
+            }
+            else
+            {
+                transform.position = newPosition;
+            }
         }
 
         private void EnableMarker()

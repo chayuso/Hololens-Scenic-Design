@@ -40,14 +40,14 @@ public class PlayerVRCharacter : NetworkBehaviour
         {
             return;
         }
-        if (Input.GetButton("MC_LEFT_GRIP"))
+        if (Input.GetButton("MC_LEFT_GRIP")|| Input.GetButton("MC_RIGHT_GRIP"))
         {
             transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>().EnableStrafe = false;
             transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>().EnableRotation = false;
         }
         else
         {
-            if (!forwardtick && Input.GetAxis("MC_LEFT_STICK_VERTICAL") > .19)
+            if (!forwardtick && (Input.GetAxis("MC_LEFT_STICK_VERTICAL") > .19|| Input.GetAxis("MC_RIGHT_STICK_VERTICAL") > .19))
             {
                 forwardtick = true;
             }
@@ -64,9 +64,9 @@ public class PlayerVRCharacter : NetworkBehaviour
             }
         }
         
-        var x = Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") * Time.deltaTime * 3.0f;
-        var z = Input.GetAxis("MC_LEFT_STICK_VERTICAL") * Time.deltaTime * 3.0f;
-        if (Input.GetButton("MC_LEFT_GRIP"))
+        var x = (Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") * Time.deltaTime * 3.0f)+ (Input.GetAxis("MC_RIGHT_STICK_HORIZONTAL") * Time.deltaTime * 3.0f);
+        var z = (Input.GetAxis("MC_LEFT_STICK_VERTICAL") * Time.deltaTime * 3.0f) + (Input.GetAxis("MC_RIGHT_STICK_VERTICAL") * Time.deltaTime * 3.0f);
+        if (Input.GetButton("MC_LEFT_GRIP")|| Input.GetButton("MC_RIGHT_GRIP"))
         {
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + z, transform.localPosition.z);
         }
@@ -81,6 +81,8 @@ public class PlayerVRCharacter : NetworkBehaviour
             transform.Translate(new Vector3(x, 0, 0), CameraCache.Main.transform);
             if (Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") <= .19 && Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") >= -.19
                 && Input.GetAxis("MC_LEFT_STICK_VERTICAL") <= .19 && Input.GetAxis("MC_LEFT_STICK_VERTICAL") >= -.19
+                && Input.GetAxis("MC_RIGHT_STICK_HORIZONTAL") <= .19 && Input.GetAxis("MC_RIGHT_STICK_HORIZONTAL") >= -.19
+                && Input.GetAxis("MC_RIGHT_STICK_VERTICAL") <= .19 && Input.GetAxis("MC_RIGHT_STICK_VERTICAL") >= -.19
                 )
             {
                 forwardtick = false;

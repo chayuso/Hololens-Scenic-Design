@@ -92,6 +92,8 @@ public class MotionControlTesting : NetworkBehaviour
             }
             if (Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") <= .19 && Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") >= -.19
                 && Input.GetAxis("MC_LEFT_STICK_VERTICAL") <= .19 && Input.GetAxis("MC_LEFT_STICK_VERTICAL") >= -.19
+                && Input.GetAxis("MC_RIGHT_STICK_HORIZONTAL") <= .19 && Input.GetAxis("MC_RIGHT_STICK_HORIZONTAL") >= -.19
+                && Input.GetAxis("MC_RIGHT_STICK_VERTICAL") <= .19 && Input.GetAxis("MC_RIGHT_STICK_VERTICAL") >= -.19
                 //&& !Input.GetButton("MC_LEFT_GRIP")
                 //&& Input.GetAxis("XBOX_DPAD_VERTICAL") < .25
                 //&& Input.GetAxis("XBOX_DPAD_VERTICAL") > -.25

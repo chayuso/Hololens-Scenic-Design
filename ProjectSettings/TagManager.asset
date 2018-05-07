@@ -8,6 +8,7 @@ TagManager:
   - MoveableObject
   - raycam
   - RightCameraUI
+  - Cursor
   layers:
   - Default
   - TransparentFX
