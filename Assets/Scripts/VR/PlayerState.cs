@@ -7,10 +7,20 @@ public class PlayerState : MonoBehaviour {
     public bool RightHandHolding = false;
     public string CurrentHand = "None";
     public string ManipulationMode = "YRotation";
+    public string MenuMode = "BaseMenu";//Deappreciated
+    public string EditingMode = "Edit";
     // Use this for initialization
     void Start () {
 		
 	}
+    public void SetMode(string Mode)
+    {
+        EditingMode = Mode;
+    }
+    public void SetMenu(string Mode)
+    {
+        MenuMode = Mode;
+    }
     void MenuSelect()
     {
         if (Input.GetButtonUp("MC_RIGHT_MENU"))
@@ -40,7 +50,7 @@ public class PlayerState : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        MenuSelect();
+        //MenuSelect();
         if (Input.GetButtonDown("MC_LEFT_TRIGGER_BUTTON"))
         {
             CurrentHand = "Left";

@@ -54,7 +54,7 @@ namespace HoloToolkit.Unity.UX
 
         private GameObject objectToBound;
 
-        private AppBar appBarInstance;
+        public AppBar appBarInstance;
 
         private GameObject[] rotateHandles;
 
@@ -70,9 +70,9 @@ namespace HoloToolkit.Unity.UX
 
         private bool showRig = false;
 
-        private Vector3 scaleHandleSize = new Vector3(0.04f, 0.04f, 0.04f);
+        private Vector3 scaleHandleSize = new Vector3(0.08f, 0.08f, 0.08f);
 
-        private Vector3 rotateHandleSize = new Vector3(0.04f, 0.04f, 0.04f);
+        private Vector3 rotateHandleSize = new Vector3(0.08f, 0.08f, 0.08f);
 
         private bool destroying = false;
 

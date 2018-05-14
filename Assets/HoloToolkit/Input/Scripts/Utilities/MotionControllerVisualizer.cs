@@ -70,8 +70,8 @@ namespace HoloToolkit.Unity.InputModule
         private Dictionary<string, MotionControllerInfo> controllerDictionary = new Dictionary<string, MotionControllerInfo>(0);
         private List<string> loadingControllers = new List<string>();
 
-        private MotionControllerInfo leftControllerModel;
-        private MotionControllerInfo rightControllerModel;
+        public MotionControllerInfo leftControllerModel;
+        public MotionControllerInfo rightControllerModel;
 
         public event Action<MotionControllerInfo> OnControllerModelLoaded;
         public event Action<MotionControllerInfo> OnControllerModelUnloaded;

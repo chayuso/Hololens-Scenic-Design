@@ -9,6 +9,7 @@ TagManager:
   - raycam
   - RightCameraUI
   - Cursor
+  - HotSpot
   layers:
   - Default
   - TransparentFX

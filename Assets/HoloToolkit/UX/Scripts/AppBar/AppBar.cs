@@ -129,6 +129,7 @@ namespace HoloToolkit.Unity.UX
         public bool UseRemove = true;
         public bool UseAdjust = true;
         public bool UseHide = true;
+        public bool UseCopy = true;
 
         public ButtonTemplate[] Buttons
         {
@@ -252,11 +253,21 @@ namespace HoloToolkit.Unity.UX
                     boundingBox.Target.GetComponent<BoundingBoxRig>().Deactivate();
                     break;
 
+                case "Copy":
+                    DuplicateObject();
+                    break;
+
                 default:
                     break;
             }
         }
-
+        private void DuplicateObject()
+        {
+            var Dup = (GameObject)Instantiate(
+                    boundingBox.Target,
+                    transform.position,
+                    boundingBox.Target.transform.rotation);
+        }
         private void CreateButton(ButtonTemplate template, ButtonIconProfile customIconProfile)
         {
             if (template.IsEmpty)
@@ -420,6 +431,11 @@ namespace HoloToolkit.Unity.UX
                 defaultButtonsList.Add(GetDefaultButtonTemplateFromType(ButtonTypeEnum.Hide, numCustomButtons, UseHide, UseAdjust));
                 defaultButtonsList.Add(GetDefaultButtonTemplateFromType(ButtonTypeEnum.Show, numCustomButtons, UseHide, UseAdjust));
             }
+            if (UseCopy)
+            {
+                defaultButtonsList.Add(GetDefaultButtonTemplateFromType(ButtonTypeEnum.Custom, numCustomButtons, UseHide, UseAdjust));
+
+            }
             defaultButtons = defaultButtonsList.ToArray();
         }
 
@@ -447,10 +463,10 @@ namespace HoloToolkit.Unity.UX
                 case ButtonTypeEnum.Custom:
                     return new ButtonTemplate(
                         ButtonTypeEnum.Custom,
-                        "Custom",
-                        "",
-                        "Custom",
-                        0,
+                        "Copy",
+                        "ObjectCollectionScatter",
+                        "Copy",
+                        3,
                         0);
 
                 case ButtonTypeEnum.Adjust:

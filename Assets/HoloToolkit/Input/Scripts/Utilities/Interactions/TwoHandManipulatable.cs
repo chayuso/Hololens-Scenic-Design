@@ -92,6 +92,7 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
         private TwoHandRotateLogic m_rotateLogic;
         private GameObject MainPlayer;
         private string CurrentMode = "YRotation";
+        public Transform cursorTrans;
 
         /// <summary>
         /// Maps input id -> position of hand
@@ -155,6 +156,11 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
             if (HostTransform == null)
             {
                 HostTransform = transform;
+            }
+            HostTransform = transform;
+            if (!cursorTrans)
+            {
+                cursorTrans = GameObject.FindGameObjectWithTag("Cursor").transform;
             }
         }
         void ManipulationModeUpdate()
@@ -253,6 +259,14 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
             m_handsPressedInputSourceMap[eventData.SourceId] = eventData.InputSource;
             UpdateStateMachine();
             eventData.Use();
+            transform.GetComponent<BoxCollider>().enabled = false;
+            foreach (Transform g in transform.GetComponent<BoundingBoxRig>().appBarInstance.transform.Find("ButtonParent"))
+            {
+                if (g.gameObject.GetComponent<BoxCollider>())
+                {
+                    g.gameObject.GetComponent<BoxCollider>().enabled = false;
+                }
+            }
         }
 
         /// <summary>
@@ -263,6 +277,14 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
             RemoveSourceIdFromHandMap(eventData.SourceId);
             UpdateStateMachine();
             eventData.Use();
+            transform.GetComponent<BoxCollider>().enabled = true;
+            foreach (Transform g in transform.GetComponent<BoundingBoxRig>().appBarInstance.transform.Find("ButtonParent"))
+            {
+                if (g.gameObject.GetComponent<BoxCollider>())
+                {
+                    g.gameObject.GetComponent<BoxCollider>().enabled =true;
+                }
+            }
         }
 
         /// <summary>
@@ -420,7 +442,7 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
                 targetScale = m_scaleLogic.UpdateMap(m_handsPressedLocationsMap);
             }
 
-            HostTransform.position = targetPosition;
+            HostTransform.position = cursorTrans.position;//targetPosition;
             HostTransform.rotation = targetRotation;
             HostTransform.localScale = targetScale;
 #endif // UNITY_2017_2_OR_NEWER
@@ -430,7 +452,7 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
         {
             var targetPosition = m_moveLogic.Update(m_handsPressedLocationsMap.Values.First(), HostTransform.position);
 
-            HostTransform.position = targetPosition;
+            HostTransform.position = cursorTrans.position;//targetPosition;
         }
 
         private void OnTwoHandManipulationEnded()
