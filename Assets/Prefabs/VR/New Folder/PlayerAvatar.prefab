@@ -3409,7 +3409,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4f37668d794e3694c9ee36b62447d99b, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4691,42 +4691,42 @@ MonoBehaviour:
     BoolValue: 0
     IntValue: 0
     FloatValue: 0
-    InvalidParam: 0
+    InvalidParam: 1
   - ButtonState: 1
     ParamName: State
     ParamType: 3
     BoolValue: 0
     IntValue: 1
     FloatValue: 0
-    InvalidParam: 0
+    InvalidParam: 1
   - ButtonState: 2
     ParamName: State
     ParamType: 3
     BoolValue: 0
     IntValue: 2
     FloatValue: 0
-    InvalidParam: 0
+    InvalidParam: 1
   - ButtonState: 3
     ParamName: State
     ParamType: 3
     BoolValue: 0
     IntValue: 3
     FloatValue: 0
-    InvalidParam: 0
+    InvalidParam: 1
   - ButtonState: 4
     ParamName: State
     ParamType: 3
     BoolValue: 0
     IntValue: 4
     FloatValue: 0
-    InvalidParam: 0
+    InvalidParam: 1
   - ButtonState: 5
     ParamName: State
     ParamType: 3
     BoolValue: 0
     IntValue: 5
     FloatValue: 0
-    InvalidParam: 0
+    InvalidParam: 1
 --- !u!114 &114039641379438604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5619,8 +5619,8 @@ MonoBehaviour:
   FloorQuad: {fileID: 1520281459093612, guid: 08d25ccfbbc595b4a820c7edd551d095, type: 2}
   boundaryHeight: 10
   opaqueTrackingSpaceType: 1
-  renderFloor: 1
-  renderBoundary: 1
+  renderFloor: 0
+  renderBoundary: 0
 --- !u!114 &114436781182154558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5980,12 +5980,13 @@ MonoBehaviour:
   OnDownEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114501392191540850}
-        m_MethodName: SetMode
-        m_Mode: 5
+      - m_Target: {fileID: 114265121340265420}
+        m_MethodName: SpawnCameraHotSpot
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1907318091418064, guid: 4cfc88b8fb9e03d4184bf2e1046ba920,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: HotSpot

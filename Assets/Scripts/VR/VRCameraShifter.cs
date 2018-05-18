@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Networking;
+using HoloToolkit.Unity;
 using UnityEngine;
+
 
 public class VRCameraShifter : NetworkBehaviour
 {
@@ -18,7 +20,6 @@ public class VRCameraShifter : NetworkBehaviour
         InitSetFirstCamera();
         //StartCoroutine(NextCamDelay());//Testing Only
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -39,6 +40,14 @@ public class VRCameraShifter : NetworkBehaviour
             NextCam();
         }
     }
+    public void SpawnCameraHotSpot(GameObject prefabG)
+    {
+        var Spawn = (GameObject)Instantiate(
+                prefabG,
+                transform.position,
+                CameraCache.Main.transform.rotation);
+        BuildCamerasArray();
+    }
     public void NextCam()
     {
         for (int i = 0; i < SceneCameras.Length; i++)
@@ -51,7 +60,7 @@ public class VRCameraShifter : NetworkBehaviour
             if (SceneCameras[camNum].gameObject != gameObject)
             {
                 CPlayer.transform.position = SceneCameras[camNum].gameObject.transform.position;
-                CPlayer.transform.rotation = SceneCameras[camNum].gameObject.transform.rotation;
+                CPlayer.transform.Find("MixedRealityCameraParent").transform.Find("MixedRealityCamera").transform.rotation = SceneCameras[camNum].gameObject.transform.rotation;
                 break;
             }
         }
@@ -68,7 +77,7 @@ public class VRCameraShifter : NetworkBehaviour
             if (SceneCameras[camNum].gameObject != gameObject)
             {
                 CPlayer.transform.position = SceneCameras[camNum].gameObject.transform.position;
-                CPlayer.transform.rotation = SceneCameras[camNum].gameObject.transform.rotation;
+                CPlayer.transform.Find("MixedRealityCameraParent").transform.Find("MixedRealityCamera").transform.rotation = SceneCameras[camNum].gameObject.transform.rotation;
                 break;
             }
         }
@@ -99,7 +108,7 @@ public class VRCameraShifter : NetworkBehaviour
         }
     }
 
-    void BuildCamerasArray()
+    public void BuildCamerasArray()
     {
         SceneCameras = GameObject.FindGameObjectsWithTag("HotSpot");
     }

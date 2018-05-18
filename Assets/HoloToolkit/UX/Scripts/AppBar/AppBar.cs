@@ -193,7 +193,18 @@ namespace HoloToolkit.Unity.UX
 
         public void Start()
         {
-            State = AppBarStateEnum.Default;
+            if (boundingBox.Target.tag == "HotSpot")
+            {
+                UseRemove = true;
+                UseAdjust = false;
+                UseHide = false;
+                UseCopy = false;
+                State = AppBarStateEnum.Default;
+            }
+            else
+            {
+                State = AppBarStateEnum.Hidden;
+            }
             if (interactables.Count == 0)
             {
                 RefreshTemplates();
@@ -207,6 +218,7 @@ namespace HoloToolkit.Unity.UX
                     CreateButton(buttons[i], CustomButtonIconProfile);
                 }
             }
+
         }
 
         protected override void InputClicked(GameObject obj, InputClickedEventData eventData)

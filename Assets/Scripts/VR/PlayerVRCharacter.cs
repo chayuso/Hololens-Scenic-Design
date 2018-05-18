@@ -4,7 +4,6 @@ using UnityEngine.Networking;
 using HoloToolkit.Unity;
 using HoloToolkit.Unity.InputModule;
 using UnityEngine;
-using HoloToolkit.Unity.InputModule;
 #if UNITY_2017_2_OR_NEWER
 using UnityEngine.XR;
 #if UNITY_WSA
