@@ -39,7 +39,8 @@ public class PlayerVRCharacter : NetworkBehaviour
         {
             return;
         }
-        if (Input.GetButton("MC_LEFT_GRIP")|| Input.GetButton("MC_RIGHT_GRIP"))
+        if (transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>())
+            if (Input.GetButton("MC_LEFT_GRIP")|| Input.GetButton("MC_RIGHT_GRIP"))
         {
             transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>().EnableStrafe = false;
             transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>().EnableRotation = false;

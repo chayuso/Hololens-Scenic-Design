@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.XR.WSA.Input;
 using UnityEngine.Assertions;
 
 
@@ -197,6 +198,8 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
         }
         private void Update()
         {
+            //OnTriggerDown();
+            //OnTriggerUp();
             //Update positions of all hands
             foreach (var key in m_handsPressedInputSourceMap.Keys)
             {
@@ -227,6 +230,7 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
             {
                 ManipulationModeUpdate();
             }
+            
         }
 
         private Vector3 GetInputPosition(InputEventData eventData)
@@ -255,8 +259,16 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
         public void OnInputDown(InputEventData eventData)
         {
             // Add to hand map
+            /*if (Input.GetAxis("MC_RIGHT_SELECT_TRIGGER")>0|| Input.GetAxis("MC_RIGHT_SELECT_TRIGGER") > 0)
+            {
+                print("yes");
+            }
+            else { print("nope");
+                return;
+            }*/
             m_handsPressedLocationsMap[eventData.SourceId] = GetInputPosition(eventData);
             m_handsPressedInputSourceMap[eventData.SourceId] = eventData.InputSource;
+           
             UpdateStateMachine();
             eventData.Use();
             transform.GetComponent<BoxCollider>().enabled = false;
@@ -286,7 +298,38 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
                 }
             }
         }
-
+        public void OnTriggerDown()
+        {
+            if (Input.GetAxis("MC_RIGHT_SELECT_TRIGGER") > 0 )//|| Input.GetAxis("MC_LEFT_SELECT_TRIGGER") > 0)
+            {
+                print("Down");
+                UpdateStateMachine();
+                transform.GetComponent<BoxCollider>().enabled = false;
+                foreach (Transform g in transform.GetComponent<BoundingBoxRig>().appBarInstance.transform.Find("ButtonParent"))
+                {
+                    if (g.gameObject.GetComponent<BoxCollider>())
+                    {
+                        g.gameObject.GetComponent<BoxCollider>().enabled = false;
+                    }
+                }
+            }
+        }
+        public void OnTriggerUp()
+        {
+            if (Input.GetAxis("MC_RIGHT_SELECT_TRIGGER") <= 0 )//|| Input.GetAxis("MC_LEFT_SELECT_TRIGGER") <= 0)
+            {
+                print("Up");
+                UpdateStateMachine();
+                transform.GetComponent<BoxCollider>().enabled = true;
+                foreach (Transform g in transform.GetComponent<BoundingBoxRig>().appBarInstance.transform.Find("ButtonParent"))
+                {
+                    if (g.gameObject.GetComponent<BoxCollider>())
+                    {
+                        g.gameObject.GetComponent<BoxCollider>().enabled = true;
+                    }
+                }
+            }
+        }
         /// <summary>
         /// OnSourceDetected Event Handler
         /// </summary>

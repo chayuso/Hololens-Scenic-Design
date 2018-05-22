@@ -9,7 +9,9 @@ public class VRCameraShifter : NetworkBehaviour
 {
     public GameObject[] SceneCameras;
     public GameObject CPlayer;
+    public GameObject hotSpotPrefab;
     public int camNum = 0;
+    public bool spawnCam = false;
     // Use this for initialization
     void Start()
     {
@@ -31,6 +33,11 @@ public class VRCameraShifter : NetworkBehaviour
         {
             PreviousCam();
         }
+        if (spawnCam)
+        {
+            spawnCam = false;
+            SpawnCameraHotSpot();
+        }
     }
     IEnumerator NextCamDelay()
     {
@@ -40,12 +47,13 @@ public class VRCameraShifter : NetworkBehaviour
             NextCam();
         }
     }
-    public void SpawnCameraHotSpot(GameObject prefabG)
+    public void SpawnCameraHotSpot()
     {
         var Spawn = (GameObject)Instantiate(
-                prefabG,
+                hotSpotPrefab,
                 transform.position,
-                CameraCache.Main.transform.rotation);
+               new Quaternion(1,1,1,1));
+        Spawn.transform.eulerAngles = new Vector3(0, CPlayer.transform.Find("MixedRealityCameraParent").transform.Find("MixedRealityCamera").transform.eulerAngles.y, 0);
         BuildCamerasArray();
     }
     public void NextCam()
@@ -60,7 +68,8 @@ public class VRCameraShifter : NetworkBehaviour
             if (SceneCameras[camNum].gameObject != gameObject)
             {
                 CPlayer.transform.position = SceneCameras[camNum].gameObject.transform.position;
-                CPlayer.transform.Find("MixedRealityCameraParent").transform.Find("MixedRealityCamera").transform.rotation = SceneCameras[camNum].gameObject.transform.rotation;
+                //CPlayer.transform.eulerAngles = new Vector3(CPlayer.transform.eulerAngles.x, SceneCameras[camNum].gameObject.transform.eulerAngles.y, CPlayer.transform.eulerAngles.z);
+                CPlayer.transform.Find("MixedRealityCameraParent").transform.Find("MixedRealityCamera").transform.eulerAngles = new Vector3(CPlayer.transform.Find("MixedRealityCameraParent").transform.Find("MixedRealityCamera").transform.eulerAngles.x, SceneCameras[camNum].gameObject.transform.eulerAngles.y, CPlayer.transform.Find("MixedRealityCameraParent").transform.Find("MixedRealityCamera").transform.eulerAngles.z);
                 break;
             }
         }
@@ -77,7 +86,8 @@ public class VRCameraShifter : NetworkBehaviour
             if (SceneCameras[camNum].gameObject != gameObject)
             {
                 CPlayer.transform.position = SceneCameras[camNum].gameObject.transform.position;
-                CPlayer.transform.Find("MixedRealityCameraParent").transform.Find("MixedRealityCamera").transform.rotation = SceneCameras[camNum].gameObject.transform.rotation;
+               // CPlayer.transform.eulerAngles = new Vector3(CPlayer.transform.eulerAngles.x, SceneCameras[camNum].gameObject.transform.eulerAngles.y, CPlayer.transform.eulerAngles.z);
+                CPlayer.transform.Find("MixedRealityCameraParent").transform.Find("MixedRealityCamera").transform.eulerAngles = new Vector3(CPlayer.transform.Find("MixedRealityCameraParent").transform.Find("MixedRealityCamera").transform.eulerAngles.x, SceneCameras[camNum].gameObject.transform.eulerAngles.y, CPlayer.transform.Find("MixedRealityCameraParent").transform.Find("MixedRealityCamera").transform.eulerAngles.z);
                 break;
             }
         }
@@ -89,7 +99,7 @@ public class VRCameraShifter : NetworkBehaviour
             if (SceneCameras[i].gameObject != gameObject)
             {
                 CPlayer.transform.position = SceneCameras[i].gameObject.transform.position;
-                CPlayer.transform.rotation = SceneCameras[i].gameObject.transform.rotation;
+                CPlayer.transform.eulerAngles = new Vector3(CPlayer.transform.eulerAngles.x, SceneCameras[i].gameObject.transform.eulerAngles.y, CPlayer.transform.eulerAngles.z);
                 camNum = i;
                 break;
             }
