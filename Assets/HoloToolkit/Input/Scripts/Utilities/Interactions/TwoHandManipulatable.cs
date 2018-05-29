@@ -488,11 +488,17 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
             HostTransform.position = cursorTrans.position;//targetPosition;
             HostTransform.rotation = targetRotation;
             HostTransform.localScale = targetScale;
+           
+            //ObjectRotation = transform.rotation;
 #endif // UNITY_2017_2_OR_NEWER
         }
 
         private void OnOneHandMoveUpdated()
         {
+            float rh = 1 * Input.GetAxis("MC_RIGHT_TOUCHPAD_HORIZONTAL");
+            float lh = 1 * Input.GetAxis("MC_LEFT_TOUCHPAD_HORIZONTAL");
+            HostTransform.transform.Rotate(0, -lh, 0);
+            HostTransform.transform.Rotate(0, -rh, 0);
             var targetPosition = m_moveLogic.Update(m_handsPressedLocationsMap.Values.First(), HostTransform.position);
 
             HostTransform.position = cursorTrans.position;//targetPosition;
