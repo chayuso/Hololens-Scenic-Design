@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: 04b0572bf2a3ac541a5114f3e38a4ae2
+timeCreated: 1527570976
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Ambient_Omni_Light
+    100002: Backgrounds
+    100004: Camera
+    100006: Cameras
+    100008: Default_Infinite_Light
+    100010: Default_Infinite_Light_2
+    100012: Extrude
+    100014: Extrude_2
+    100016: Extrude_3
+    100018: Extrude_4
+    100020: Extrude_5
+    100022: Extrude_6
+    100024: Extrude_7
+    100026: Extrude_8
+    100028: Extrude_Along_Path
+    100030: Extrude_Along_Path_2
+    100032: Furn_Dining_Table_Dining_Furniture_Main
+    100034: Furn_Dining_Table_Dining_Furniture_Main_2
+    100036: Generic_Solid
+    100038: Generic_Solid_2
+    100040: Geometry
+    100042: Group
+    100044: Group_2
+    100046: Group_3
+    100048: Group_4
+    100050: Lights
+    100052: Mesh
+    100054: Mesh_2
+    100056: Mesh_3
+    100058: Mesh_4
+    100060: Mesh_5
+    100062: Mesh_6
+    100064: Mesh_7
+    100066: Mesh_8
+    100068: Null
+    100070: Symbols
+    100072: //RootNode
+    400000: Ambient_Omni_Light
+    400002: Backgrounds
+    400004: Camera
+    400006: Cameras
+    400008: Default_Infinite_Light
+    400010: Default_Infinite_Light_2
+    400012: Extrude
+    400014: Extrude_2
+    400016: Extrude_3
+    400018: Extrude_4
+    400020: Extrude_5
+    400022: Extrude_6
+    400024: Extrude_7
+    400026: Extrude_8
+    400028: Extrude_Along_Path
+    400030: Extrude_Along_Path_2
+    400032: Furn_Dining_Table_Dining_Furniture_Main
+    400034: Furn_Dining_Table_Dining_Furniture_Main_2
+    400036: Generic_Solid
+    400038: Generic_Solid_2
+    400040: Geometry
+    400042: Group
+    400044: Group_2
+    400046: Group_3
+    400048: Group_4
+    400050: Lights
+    400052: Mesh
+    400054: Mesh_2
+    400056: Mesh_3
+    400058: Mesh_4
+    400060: Mesh_5
+    400062: Mesh_6
+    400064: Mesh_7
+    400066: Mesh_8
+    400068: Null
+    400070: Symbols
+    400072: //RootNode
+    2000000: Camera
+    2100000: Wood 01 RT
+    2300000: Extrude
+    2300002: Extrude_2
+    2300004: Extrude_3
+    2300006: Extrude_4
+    2300008: Extrude_5
+    2300010: Extrude_6
+    2300012: Extrude_7
+    2300014: Extrude_8
+    2300016: Extrude_Along_Path
+    2300018: Extrude_Along_Path_2
+    2300020: Generic_Solid
+    2300022: Generic_Solid_2
+    2300024: Mesh
+    2300026: Mesh_2
+    2300028: Mesh_3
+    2300030: Mesh_4
+    2300032: Mesh_5
+    2300034: Mesh_6
+    2300036: Mesh_7
+    2300038: Mesh_8
+    3300000: Extrude
+    3300002: Extrude_2
+    3300004: Extrude_3
+    3300006: Extrude_4
+    3300008: Extrude_5
+    3300010: Extrude_6
+    3300012: Extrude_7
+    3300014: Extrude_8
+    3300016: Extrude_Along_Path
+    3300018: Extrude_Along_Path_2
+    3300020: Generic_Solid
+    3300022: Generic_Solid_2
+    3300024: Mesh
+    3300026: Mesh_2
+    3300028: Mesh_3
+    3300030: Mesh_4
+    3300032: Mesh_5
+    3300034: Mesh_6
+    3300036: Mesh_7
+    3300038: Mesh_8
+    4300000: Generic_Solid
+    4300002: Extrude_Along_Path
+    4300004: Extrude
+    4300006: Extrude_2
+    4300008: Extrude_3
+    4300010: Extrude_4
+    4300012: Mesh
+    4300014: Mesh_2
+    4300016: Mesh_3
+    4300018: Mesh_4
+    4300020: Generic_Solid_2
+    4300022: Extrude_Along_Path_2
+    4300024: Extrude_5
+    4300026: Extrude_6
+    4300028: Extrude_7
+    4300030: Extrude_8
+    4300032: Mesh_5
+    4300034: Mesh_6
+    4300036: Mesh_7
+    4300038: Mesh_8
+    9500000: //RootNode
+    10800000: Ambient_Omni_Light
+    10800002: Default_Infinite_Light
+    10800004: Default_Infinite_Light_2
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

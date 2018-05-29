@@ -1,0 +1,149 @@
+fileFormatVersion: 2
+guid: d1f6a0f187a1885498113b724028fba2
+timeCreated: 1527573022
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Ambient_Omni_Light
+    100002: Backgrounds
+    100004: Camera
+    100006: Cameras
+    100008: Default_Infinite_Light
+    100010: Default_Infinite_Light_2
+    100012: Furn_Office__Table_Conf_Round_Furniture_Main
+    100014: Furn_Office__Table_Conf_Round_Furniture_Main_2
+    100016: Generic_Solid
+    100018: Generic_Solid_2
+    100020: Generic_Solid_3
+    100022: Generic_Solid_4
+    100024: Generic_Solid_5
+    100026: Generic_Solid_6
+    100028: Geometry
+    100030: Lights
+    100032: Null
+    100034: Symbols
+    100036: //RootNode
+    400000: Ambient_Omni_Light
+    400002: Backgrounds
+    400004: Camera
+    400006: Cameras
+    400008: Default_Infinite_Light
+    400010: Default_Infinite_Light_2
+    400012: Furn_Office__Table_Conf_Round_Furniture_Main
+    400014: Furn_Office__Table_Conf_Round_Furniture_Main_2
+    400016: Generic_Solid
+    400018: Generic_Solid_2
+    400020: Generic_Solid_3
+    400022: Generic_Solid_4
+    400024: Generic_Solid_5
+    400026: Generic_Solid_6
+    400028: Geometry
+    400030: Lights
+    400032: Null
+    400034: Symbols
+    400036: //RootNode
+    2000000: Camera
+    2100000: Furnwood 02 RT
+    2300000: Generic_Solid
+    2300002: Generic_Solid_2
+    2300004: Generic_Solid_3
+    2300006: Generic_Solid_4
+    2300008: Generic_Solid_5
+    2300010: Generic_Solid_6
+    3300000: Generic_Solid
+    3300002: Generic_Solid_2
+    3300004: Generic_Solid_3
+    3300006: Generic_Solid_4
+    3300008: Generic_Solid_5
+    3300010: Generic_Solid_6
+    4300000: Generic_Solid
+    4300002: Generic_Solid_2
+    4300004: Generic_Solid_3
+    4300006: Generic_Solid_4
+    4300008: Generic_Solid_5
+    4300010: Generic_Solid_6
+    9500000: //RootNode
+    10800000: Ambient_Omni_Light
+    10800002: Default_Infinite_Light
+    10800004: Default_Infinite_Light_2
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

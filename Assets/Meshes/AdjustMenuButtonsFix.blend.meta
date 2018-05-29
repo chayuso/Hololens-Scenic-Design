@@ -1,0 +1,167 @@
+fileFormatVersion: 2
+guid: ddd339275f1c14949b6c8d0cae1485bd
+timeCreated: 1527115071
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: AdjustButton
+    100002: //RootNode
+    100004: CopyButton
+    100006: HideButton
+    100008: RemoveButton
+    100010: ShowButton
+    100012: UIButtonRectangleIcon
+    100014: UIButtonRectangleIcon_001
+    100016: UIButtonRectangleIcon_002
+    100018: UIButtonRectangleIcon_003
+    100020: UIButtonRectangleIcon_004
+    100022: UIButtonRectangleIcon_005
+    100024: UIButtonRectangleIcon_006
+    100026: UIButtonRectangleIcon_007
+    100028: UIButtonRectangleIcon_008
+    100030: UIButtonRectangleIcon_009
+    400000: AdjustButton
+    400002: //RootNode
+    400004: CopyButton
+    400006: HideButton
+    400008: RemoveButton
+    400010: ShowButton
+    400012: UIButtonRectangleIcon
+    400014: UIButtonRectangleIcon_001
+    400016: UIButtonRectangleIcon_002
+    400018: UIButtonRectangleIcon_003
+    400020: UIButtonRectangleIcon_004
+    400022: UIButtonRectangleIcon_005
+    400024: UIButtonRectangleIcon_006
+    400026: UIButtonRectangleIcon_007
+    400028: UIButtonRectangleIcon_008
+    400030: UIButtonRectangleIcon_009
+    2100000: lambert1
+    2300000: AdjustButton
+    2300002: CopyButton
+    2300004: HideButton
+    2300006: RemoveButton
+    2300008: ShowButton
+    2300010: UIButtonRectangleIcon
+    2300012: UIButtonRectangleIcon_001
+    2300014: UIButtonRectangleIcon_002
+    2300016: UIButtonRectangleIcon_003
+    2300018: UIButtonRectangleIcon_004
+    2300020: UIButtonRectangleIcon_005
+    2300022: UIButtonRectangleIcon_006
+    2300024: UIButtonRectangleIcon_007
+    2300026: UIButtonRectangleIcon_008
+    2300028: UIButtonRectangleIcon_009
+    3300000: AdjustButton
+    3300002: CopyButton
+    3300004: HideButton
+    3300006: RemoveButton
+    3300008: ShowButton
+    3300010: UIButtonRectangleIcon
+    3300012: UIButtonRectangleIcon_001
+    3300014: UIButtonRectangleIcon_002
+    3300016: UIButtonRectangleIcon_003
+    3300018: UIButtonRectangleIcon_004
+    3300020: UIButtonRectangleIcon_005
+    3300022: UIButtonRectangleIcon_006
+    3300024: UIButtonRectangleIcon_007
+    3300026: UIButtonRectangleIcon_008
+    3300028: UIButtonRectangleIcon_009
+    4300000: CopyButton
+    4300002: UIButtonRectangleIcon_009
+    4300004: UIButtonRectangleIcon_008
+    4300006: RemoveButton
+    4300008: UIButtonRectangleIcon_007
+    4300010: UIButtonRectangleIcon_006
+    4300012: HideButton
+    4300014: UIButtonRectangleIcon_005
+    4300016: UIButtonRectangleIcon_004
+    4300018: AdjustButton
+    4300020: UIButtonRectangleIcon_003
+    4300022: UIButtonRectangleIcon_002
+    4300024: ShowButton
+    4300026: UIButtonRectangleIcon_001
+    4300028: UIButtonRectangleIcon
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

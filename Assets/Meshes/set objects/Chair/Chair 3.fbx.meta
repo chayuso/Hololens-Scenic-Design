@@ -1,0 +1,230 @@
+fileFormatVersion: 2
+guid: 5b69a734813138b4d890edb7288fc613
+timeCreated: 1527571670
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Ambient_Omni_Light
+    100002: Backgrounds
+    100004: Camera
+    100006: Cameras
+    100008: //RootNode
+    100010: Default_Infinite_Light
+    100012: Default_Infinite_Light_2
+    100014: Furn_Living_Chair_Oval_Back_Furniture_Main
+    100016: Furn_Living_Chair_Oval_Back_Furniture_Main_2
+    100018: Geometry
+    100020: Lights
+    100022: Mesh
+    100024: Mesh_10
+    100026: Mesh_11
+    100028: Mesh_12
+    100030: Mesh_13
+    100032: Mesh_14
+    100034: Mesh_15
+    100036: Mesh_16
+    100038: Mesh_17
+    100040: Mesh_18
+    100042: Mesh_19
+    100044: Mesh_2
+    100046: Mesh_20
+    100048: Mesh_21
+    100050: Mesh_22
+    100052: Mesh_3
+    100054: Mesh_4
+    100056: Mesh_5
+    100058: Mesh_6
+    100060: Mesh_7
+    100062: Mesh_8
+    100064: Mesh_9
+    100066: Null
+    100068: Symbols
+    400000: Ambient_Omni_Light
+    400002: Backgrounds
+    400004: Camera
+    400006: Cameras
+    400008: //RootNode
+    400010: Default_Infinite_Light
+    400012: Default_Infinite_Light_2
+    400014: Furn_Living_Chair_Oval_Back_Furniture_Main
+    400016: Furn_Living_Chair_Oval_Back_Furniture_Main_2
+    400018: Geometry
+    400020: Lights
+    400022: Mesh
+    400024: Mesh_10
+    400026: Mesh_11
+    400028: Mesh_12
+    400030: Mesh_13
+    400032: Mesh_14
+    400034: Mesh_15
+    400036: Mesh_16
+    400038: Mesh_17
+    400040: Mesh_18
+    400042: Mesh_19
+    400044: Mesh_2
+    400046: Mesh_20
+    400048: Mesh_21
+    400050: Mesh_22
+    400052: Mesh_3
+    400054: Mesh_4
+    400056: Mesh_5
+    400058: Mesh_6
+    400060: Mesh_7
+    400062: Mesh_8
+    400064: Mesh_9
+    400066: Null
+    400068: Symbols
+    2000000: Camera
+    2100000: Furnwood 03 RT
+    2100002: Green Fabric  RT
+    2300000: Mesh
+    2300002: Mesh_10
+    2300004: Mesh_11
+    2300006: Mesh_12
+    2300008: Mesh_13
+    2300010: Mesh_14
+    2300012: Mesh_15
+    2300014: Mesh_16
+    2300016: Mesh_17
+    2300018: Mesh_18
+    2300020: Mesh_19
+    2300022: Mesh_2
+    2300024: Mesh_20
+    2300026: Mesh_21
+    2300028: Mesh_22
+    2300030: Mesh_3
+    2300032: Mesh_4
+    2300034: Mesh_5
+    2300036: Mesh_6
+    2300038: Mesh_7
+    2300040: Mesh_8
+    2300042: Mesh_9
+    3300000: Mesh
+    3300002: Mesh_10
+    3300004: Mesh_11
+    3300006: Mesh_12
+    3300008: Mesh_13
+    3300010: Mesh_14
+    3300012: Mesh_15
+    3300014: Mesh_16
+    3300016: Mesh_17
+    3300018: Mesh_18
+    3300020: Mesh_19
+    3300022: Mesh_2
+    3300024: Mesh_20
+    3300026: Mesh_21
+    3300028: Mesh_22
+    3300030: Mesh_3
+    3300032: Mesh_4
+    3300034: Mesh_5
+    3300036: Mesh_6
+    3300038: Mesh_7
+    3300040: Mesh_8
+    3300042: Mesh_9
+    4300000: Mesh
+    4300002: Mesh_2
+    4300004: Mesh_3
+    4300006: Mesh_4
+    4300008: Mesh_5
+    4300010: Mesh_6
+    4300012: Mesh_7
+    4300014: Mesh_8
+    4300016: Mesh_9
+    4300018: Mesh_10
+    4300020: Mesh_11
+    4300022: Mesh_12
+    4300024: Mesh_13
+    4300026: Mesh_14
+    4300028: Mesh_15
+    4300030: Mesh_16
+    4300032: Mesh_17
+    4300034: Mesh_18
+    4300036: Mesh_19
+    4300038: Mesh_20
+    4300040: Mesh_21
+    4300042: Mesh_22
+    9500000: //RootNode
+    10800000: Ambient_Omni_Light
+    10800002: Default_Infinite_Light
+    10800004: Default_Infinite_Light_2
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

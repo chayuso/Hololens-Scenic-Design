@@ -1,0 +1,194 @@
+fileFormatVersion: 2
+guid: f55a3c87f7775414ea468308f307430e
+timeCreated: 1527573647
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Ambient_Omni_Light
+    100002: Backgrounds
+    100004: Camera
+    100006: Cameras
+    100008: //RootNode
+    100010: Default_Infinite_Light
+    100012: Default_Infinite_Light_2
+    100014: Furn_Living_Chair_Modern_Furniture_Main
+    100016: Furn_Living_Chair_Modern_Furniture_Main_2
+    100018: Generic_Solid
+    100020: Generic_Solid_10
+    100022: Generic_Solid_11
+    100024: Generic_Solid_12
+    100026: Generic_Solid_2
+    100028: Generic_Solid_3
+    100030: Generic_Solid_4
+    100032: Generic_Solid_5
+    100034: Generic_Solid_6
+    100036: Generic_Solid_7
+    100038: Generic_Solid_8
+    100040: Generic_Solid_9
+    100042: Geometry
+    100044: Group
+    100046: Group_2
+    100048: Lights
+    100050: Mesh
+    100052: Mesh_2
+    100054: Null
+    100056: Symbols
+    400000: Ambient_Omni_Light
+    400002: Backgrounds
+    400004: Camera
+    400006: Cameras
+    400008: //RootNode
+    400010: Default_Infinite_Light
+    400012: Default_Infinite_Light_2
+    400014: Furn_Living_Chair_Modern_Furniture_Main
+    400016: Furn_Living_Chair_Modern_Furniture_Main_2
+    400018: Generic_Solid
+    400020: Generic_Solid_10
+    400022: Generic_Solid_11
+    400024: Generic_Solid_12
+    400026: Generic_Solid_2
+    400028: Generic_Solid_3
+    400030: Generic_Solid_4
+    400032: Generic_Solid_5
+    400034: Generic_Solid_6
+    400036: Generic_Solid_7
+    400038: Generic_Solid_8
+    400040: Generic_Solid_9
+    400042: Geometry
+    400044: Group
+    400046: Group_2
+    400048: Lights
+    400050: Mesh
+    400052: Mesh_2
+    400054: Null
+    400056: Symbols
+    2000000: Camera
+    2100000: Color ( 204, 85, 51 )
+    2100002: Metal Chrome Plate RT
+    2300000: Generic_Solid
+    2300002: Generic_Solid_10
+    2300004: Generic_Solid_11
+    2300006: Generic_Solid_12
+    2300008: Generic_Solid_2
+    2300010: Generic_Solid_3
+    2300012: Generic_Solid_4
+    2300014: Generic_Solid_5
+    2300016: Generic_Solid_6
+    2300018: Generic_Solid_7
+    2300020: Generic_Solid_8
+    2300022: Generic_Solid_9
+    2300024: Mesh
+    2300026: Mesh_2
+    3300000: Generic_Solid
+    3300002: Generic_Solid_10
+    3300004: Generic_Solid_11
+    3300006: Generic_Solid_12
+    3300008: Generic_Solid_2
+    3300010: Generic_Solid_3
+    3300012: Generic_Solid_4
+    3300014: Generic_Solid_5
+    3300016: Generic_Solid_6
+    3300018: Generic_Solid_7
+    3300020: Generic_Solid_8
+    3300022: Generic_Solid_9
+    3300024: Mesh
+    3300026: Mesh_2
+    4300000: Mesh
+    4300002: Generic_Solid
+    4300004: Generic_Solid_2
+    4300006: Generic_Solid_3
+    4300008: Generic_Solid_4
+    4300010: Generic_Solid_5
+    4300012: Generic_Solid_6
+    4300014: Mesh_2
+    4300016: Generic_Solid_7
+    4300018: Generic_Solid_8
+    4300020: Generic_Solid_9
+    4300022: Generic_Solid_10
+    4300024: Generic_Solid_11
+    4300026: Generic_Solid_12
+    9500000: //RootNode
+    10800000: Ambient_Omni_Light
+    10800002: Default_Infinite_Light
+    10800004: Default_Infinite_Light_2
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
