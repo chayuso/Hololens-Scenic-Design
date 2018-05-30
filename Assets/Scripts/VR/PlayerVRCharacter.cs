@@ -23,6 +23,7 @@ public class PlayerVRCharacter : NetworkBehaviour
     public bool draggingObject = false;
     private float speedRiseFall = .05f;
     public bool forwardtick = false;
+    MixedRealityTeleport TeleportComponent;
     void Start()
     {
         if (!isLocalPlayer)
@@ -31,6 +32,7 @@ public class PlayerVRCharacter : NetworkBehaviour
             return;
         }
         GetComponent<Renderer>().material.SetColor("_OutlineColor", Color.green);
+        TeleportComponent = transform.Find("MixedRealityCameraParent").gameObject.GetComponent<MixedRealityTeleport>();
 
     }
     void Update()
@@ -40,42 +42,54 @@ public class PlayerVRCharacter : NetworkBehaviour
             return;
         }
         if (transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>())
-            if (Input.GetButton("MC_LEFT_GRIP")|| Input.GetButton("MC_RIGHT_GRIP"))
-        {
-            transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>().EnableStrafe = false;
-            transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>().EnableRotation = false;
-        }
-        else
-        {
-            if (!forwardtick && (Input.GetAxis("MC_LEFT_STICK_VERTICAL") > .19|| Input.GetAxis("MC_RIGHT_STICK_VERTICAL") > .19))
+            if (Input.GetButton("MC_LEFT_GRIP") || Input.GetButton("MC_RIGHT_GRIP"))
             {
-                forwardtick = true;
-            }
-            if (forwardtick)
-            {
-                transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>().EnableStrafe = false;
-                transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>().EnableRotation = false;
+                if (!TeleportComponent.EnableTeleport)
+                {
+                    transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>().EnableStrafe = false;
+                    transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>().EnableRotation = false;
+                }
+                    
             }
             else
             {
+                if (!TeleportComponent.EnableTeleport)
+                {
+                    if (!forwardtick && (Input.GetAxis("MC_LEFT_STICK_VERTICAL") > .19 || Input.GetAxis("MC_RIGHT_STICK_VERTICAL") > .19))
+                    {
+                        forwardtick = true;
+                    }
+                    if (forwardtick)
+                    {
+                        transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>().EnableStrafe = false;
+                        transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>().EnableRotation = false;
+                    }
+                    else
+                    {
 
-                transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>().EnableStrafe = true;
-                transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>().EnableRotation = true;
+                        transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>().EnableStrafe = true;
+                        transform.Find("MixedRealityCameraParent").GetComponent<MixedRealityTeleport>().EnableRotation = true;
+                    }
+                }
+                else { forwardtick = false; }
             }
-        }
         
         var x = (Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") * Time.deltaTime * 3.0f)+ (Input.GetAxis("MC_RIGHT_STICK_HORIZONTAL") * Time.deltaTime * 3.0f);
         var z = (Input.GetAxis("MC_LEFT_STICK_VERTICAL") * Time.deltaTime * 3.0f) + (Input.GetAxis("MC_RIGHT_STICK_VERTICAL") * Time.deltaTime * 3.0f);
-        if (Input.GetButton("MC_LEFT_GRIP")|| Input.GetButton("MC_RIGHT_GRIP"))
+        if (!TeleportComponent.EnableTeleport)
         {
-            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + z, transform.localPosition.z);
+            if (Input.GetButton("MC_LEFT_GRIP")|| Input.GetButton("MC_RIGHT_GRIP"))
+            {
+                transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + z, transform.localPosition.z);
+            }
+            else
+            {
+                if (!disableMove && forwardtick)
+                    transform.Translate(new Vector3(0, 0, z), CameraCache.Main.transform);
+            }
         }
-        else
-        {
-            if (!disableMove && forwardtick)
-                transform.Translate(new Vector3(0, 0, z), CameraCache.Main.transform);
-        }
-        if (!disableMove && forwardtick)
+        
+        if (!disableMove && forwardtick && !TeleportComponent.EnableTeleport)
         {
             //Transform transformToRotate = Camera.main.transform;
             transform.Translate(new Vector3(x, 0, 0), CameraCache.Main.transform);
