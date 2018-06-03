@@ -10,6 +10,7 @@ TagManager:
   - RightCameraUI
   - Cursor
   - HotSpot
+  - Environment
   layers:
   - Default
   - TransparentFX
