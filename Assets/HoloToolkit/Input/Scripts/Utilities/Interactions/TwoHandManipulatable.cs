@@ -495,8 +495,8 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
 
         private void OnOneHandMoveUpdated()
         {
-            float rh = 1 * Input.GetAxis("MC_RIGHT_TOUCHPAD_HORIZONTAL");
-            float lh = 1 * Input.GetAxis("MC_LEFT_TOUCHPAD_HORIZONTAL");
+            float rh = 3 * Input.GetAxis("MC_RIGHT_TOUCHPAD_HORIZONTAL");
+            float lh = 3 * Input.GetAxis("MC_LEFT_TOUCHPAD_HORIZONTAL");
             HostTransform.transform.Rotate(0, -lh, 0);
             HostTransform.transform.Rotate(0, -rh, 0);
             var targetPosition = m_moveLogic.Update(m_handsPressedLocationsMap.Values.First(), HostTransform.position);
@@ -518,7 +518,7 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
         }
 
         private void OnTwoHandManipulationStarted(State newState)
-        {
+        {/*
 #if UNITY_2017_2_OR_NEWER
             if ((newState & State.Rotating) > 0)
             {
@@ -533,6 +533,7 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
                 m_scaleLogic.Setup(m_handsPressedLocationsMap, HostTransform);
             }
 #endif // UNITY_2017_2_OR_NEWER
+*/
         }
 
         private void OnOneHandMoveStarted()
@@ -547,15 +548,59 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
             InputManager.Instance.PushModalInputHandler(gameObject);
 
             //Show Bounding Box visual on manipulation interaction
+            RecursiveCollidereEnabler(gameObject, false);
+            if (GetComponent<BoundingBoxRig>())
+            {
+                if (GetComponent<BoundingBoxRig>().appBarInstance)
+                {
+                    RecursiveCollidereEnabler(GetComponent<BoundingBoxRig>().appBarInstance.gameObject, false); 
+                }
+            }
             ShowBoundingBox = true;
         }
-
+   
         private void OnManipulationEnded()
         {
             InputManager.Instance.PopModalInputHandler();
-
+            RecursiveCollidereEnabler(gameObject, true);
+            if (GetComponent<BoundingBoxRig>())
+            {
+                if (GetComponent<BoundingBoxRig>().appBarInstance)
+                {
+                    RecursiveCollidereEnabler(GetComponent<BoundingBoxRig>().appBarInstance.gameObject, true);
+                }
+            }
             //Hide Bounding Box visual on release
             ShowBoundingBox = false;
+        }
+        private void RecursiveCollidereEnabler(GameObject gObject, bool setEnable)
+        {
+            if (gObject.transform.childCount > 0)
+            {
+                if (gObject.GetComponent<BoxCollider>())
+                {
+                    gObject.GetComponent<BoxCollider>().enabled = setEnable;
+                }
+                if (gObject.GetComponent<MeshCollider>())
+                {
+                    gObject.GetComponent<MeshCollider>().enabled = setEnable;
+                }
+                foreach (Transform childObject in gObject.transform)
+                {
+                    RecursiveCollidereEnabler(childObject.gameObject, setEnable);
+                }
+            }
+            else
+            {
+                if (gObject.GetComponent<BoxCollider>())
+                {
+                    gObject.GetComponent<BoxCollider>().enabled = setEnable;
+                }
+                if (gObject.GetComponent<MeshCollider>())
+                {
+                    gObject.GetComponent<MeshCollider>().enabled = setEnable;
+                }
+            }
         }
     }
 }
