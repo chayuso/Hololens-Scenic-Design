@@ -25,7 +25,7 @@ public class VRMenuControls : MonoBehaviour {
         {
             MainMenu.SetActive(!MainMenu.active);
         }*/
-        if (!ControllerSpawned)
+        /*if (!ControllerSpawned)
         {
             if (MCV.rightControllerModel.ControllerParent)
             {
@@ -46,7 +46,7 @@ public class VRMenuControls : MonoBehaviour {
                            ControllerPos.x + ControllerOffsetX,
                            ControllerPos.y + ControllerOffsetY,
                            ControllerPos.z + ControllerOffsetZ);
-        }
+        }*/
 
 
     }

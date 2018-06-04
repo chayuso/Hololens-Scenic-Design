@@ -35,7 +35,7 @@ public class MotionControlTesting : NetworkBehaviour
     private float fadeRate = 5f;
     Color gradientColor;
     GameObject raycamera;
-    float elevation = -.5f;
+    public float elevation = -.5f;
     // Use this for initialization
     void Start()
     {

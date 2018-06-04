@@ -79,6 +79,7 @@ namespace HoloToolkit.Unity.InputModule
 
         private void Start()
         {
+            EnableTeleport = true;
             FadeManager.AssertIsInitialized();
 
             fadeControl = FadeManager.Instance;
@@ -110,6 +111,7 @@ namespace HoloToolkit.Unity.InputModule
                     animationController.StopPlayback();
                 }
             }
+
         }
 
         private void Update()

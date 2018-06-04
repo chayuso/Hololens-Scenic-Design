@@ -14419,6 +14419,7 @@ MonoBehaviour:
   Camrotation: {x: 0, y: 0, z: 0}
   journeyLength: 0
   gradient: 0
+  elevation: -1.15
 --- !u!114 &114017315644819932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23181,7 +23182,7 @@ MonoBehaviour:
   LeftThumbstickY: CONTROLLER_LEFT_STICK_VERTICAL
   RightThumbstickX: CONTROLLER_RIGHT_STICK_HORIZONTAL
   RightThumbstickY: CONTROLLER_RIGHT_STICK_VERTICAL
-  EnableTeleport: 0
+  EnableTeleport: 1
   EnableRotation: 1
   EnableStrafe: 0
   StayOnTheFloor: 0
