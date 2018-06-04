@@ -266,6 +266,10 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
             else { print("nope");
                 return;
             }*/
+            if (eventData.PressType != InteractionSourcePressInfo.Select)
+            {
+                return;
+            }
             m_handsPressedLocationsMap[eventData.SourceId] = GetInputPosition(eventData);
             m_handsPressedInputSourceMap[eventData.SourceId] = eventData.InputSource;
            
@@ -286,6 +290,11 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
         /// </summary>
         public void OnInputUp(InputEventData eventData)
         {
+            if (eventData.PressType != InteractionSourcePressInfo.Select)
+            {
+                return;
+            }
+
             RemoveSourceIdFromHandMap(eventData.SourceId);
             UpdateStateMachine();
             eventData.Use();

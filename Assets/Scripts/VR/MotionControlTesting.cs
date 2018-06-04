@@ -35,7 +35,7 @@ public class MotionControlTesting : NetworkBehaviour
     private float fadeRate = 5f;
     Color gradientColor;
     GameObject raycamera;
-    float elevation = -.5f;
+    public float elevation = -.5f;
     // Use this for initialization
     void Start()
     {
@@ -92,8 +92,8 @@ public class MotionControlTesting : NetworkBehaviour
             }
             if (Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") <= .19 && Input.GetAxis("MC_LEFT_STICK_HORIZONTAL") >= -.19
                 && Input.GetAxis("MC_LEFT_STICK_VERTICAL") <= .19 && Input.GetAxis("MC_LEFT_STICK_VERTICAL") >= -.19
-                && Input.GetAxis("MC_RIGHT_STICK_HORIZONTAL") <= .19 && Input.GetAxis("MC_RIGHT_STICK_HORIZONTAL") >= -.19
-                && Input.GetAxis("MC_RIGHT_STICK_VERTICAL") <= .19 && Input.GetAxis("MC_RIGHT_STICK_VERTICAL") >= -.19
+                /*&& Input.GetAxis("MC_RIGHT_STICK_HORIZONTAL") <= .19 && Input.GetAxis("MC_RIGHT_STICK_HORIZONTAL") >= -.19
+                && Input.GetAxis("MC_RIGHT_STICK_VERTICAL") <= .19 && Input.GetAxis("MC_RIGHT_STICK_VERTICAL") >= -.19*/
                 //&& !Input.GetButton("MC_LEFT_GRIP")
                 //&& Input.GetAxis("XBOX_DPAD_VERTICAL") < .25
                 //&& Input.GetAxis("XBOX_DPAD_VERTICAL") > -.25

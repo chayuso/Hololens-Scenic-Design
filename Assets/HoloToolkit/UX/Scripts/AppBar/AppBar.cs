@@ -223,6 +223,10 @@ namespace HoloToolkit.Unity.UX
 
         protected override void InputClicked(GameObject obj, InputClickedEventData eventData)
         {
+            if (eventData.PressType != InteractionSourcePressInfo.Select)
+            {
+                return;
+            }
             if (Time.time < lastTimeTapped + coolDownTime)
             {
                 return;

@@ -79,6 +79,7 @@ namespace HoloToolkit.Unity.InputModule
 
         private void Start()
         {
+            EnableTeleport = true;
             FadeManager.AssertIsInitialized();
 
             fadeControl = FadeManager.Instance;
@@ -110,6 +111,7 @@ namespace HoloToolkit.Unity.InputModule
                     animationController.StopPlayback();
                 }
             }
+
         }
 
         private void Update()
@@ -186,6 +188,10 @@ namespace HoloToolkit.Unity.InputModule
         {
             if (eventData.PressType == InteractionSourcePressInfo.Thumbstick)
             {
+                if (Input.GetAxis("MC_LEFT_STICK_VERTICAL") > 0)
+                {
+                    return;
+                }
                 if (EnableTeleport)
                 {
                     if (currentPointingSource == null && eventData.Position.y > 0.8 && Math.Abs(eventData.Position.x) < 0.3)
