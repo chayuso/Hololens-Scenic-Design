@@ -82,6 +82,10 @@ namespace HoloToolkit.Examples.InteractiveElements
 
         public override void OnInputClicked(InputClickedEventData eventData)
         {
+            if (eventData.PressType != InteractionSourcePressInfo.Select)
+            {
+                return;
+            }
             if (PassiveMode || !IsEnabled)
             {
                 return;
@@ -155,6 +159,10 @@ namespace HoloToolkit.Examples.InteractiveElements
 
         public override void OnInputDown(InputEventData eventData)
         {
+            if (eventData.PressType != InteractionSourcePressInfo.Select)
+            {
+                return;
+            }
             if (((AllowDeselect && IsSelected) || !IsSelected) && !PassiveMode)
             {
                 base.OnInputDown(eventData);
@@ -163,7 +171,10 @@ namespace HoloToolkit.Examples.InteractiveElements
 
         public override void OnInputUp(InputEventData eventData)
         {
-
+            if (eventData.PressType != InteractionSourcePressInfo.Select)
+            {
+                return;
+            }
             if (((AllowDeselect && IsSelected) || !IsSelected) && !PassiveMode)
             {
                 base.OnInputUp(eventData);
