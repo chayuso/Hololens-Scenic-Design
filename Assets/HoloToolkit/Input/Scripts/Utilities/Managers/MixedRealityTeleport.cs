@@ -186,6 +186,10 @@ namespace HoloToolkit.Unity.InputModule
         {
             if (eventData.PressType == InteractionSourcePressInfo.Thumbstick)
             {
+                if (Input.GetAxis("MC_LEFT_STICK_VERTICAL") > 0)
+                {
+                    return;
+                }
                 if (EnableTeleport)
                 {
                     if (currentPointingSource == null && eventData.Position.y > 0.8 && Math.Abs(eventData.Position.x) < 0.3)
