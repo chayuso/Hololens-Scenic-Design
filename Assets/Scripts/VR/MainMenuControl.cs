@@ -6,6 +6,13 @@ using UnityEngine;
 public class MainMenuControl : MonoBehaviour {
     public GameObject[] MainMenuObjects;
     public GameObject[] SpawnMenuObjects;
+    public GameObject[] ChairSpawnables;
+    public GameObject[] TableSpawnables;
+    public GameObject[] SofaSpawnables;
+    public GameObject[] BookcaseSpawnables;
+    public GameObject[] BedSpawnables;
+    public GameObject SpawnZone;
+
     public bool ShowMainMenu = false;
     public bool ShowNone = false;
     public bool ShowSpawnMenu = false;
@@ -21,6 +28,7 @@ public class MainMenuControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        /*
         if (SpawnTestChair)
         {
             SpawnTestChair=false;
@@ -41,6 +49,7 @@ public class MainMenuControl : MonoBehaviour {
             ShowNone = false;
             ShowMenu("None");
         }
+        */
         if (Input.GetButtonUp("MC_LEFT_MENU") || Input.GetButtonUp("MC_RIGHT_MENU"))
         {
             if (MenuMode == "None")
@@ -64,13 +73,33 @@ public class MainMenuControl : MonoBehaviour {
         {
             g.SetActive(false);
         }
+        foreach (GameObject g in ChairSpawnables)
+        {
+            g.SetActive(false);
+        }
+        foreach (GameObject g in SofaSpawnables)
+        {
+            g.SetActive(false);
+        }
+        foreach (GameObject g in TableSpawnables)
+        {
+            g.SetActive(false);
+        }
+        foreach (GameObject g in BookcaseSpawnables)
+        {
+            g.SetActive(false);
+        }
+        foreach (GameObject g in BedSpawnables)
+        {
+            g.SetActive(false);
+        }
         MenuMode = "None";
     }
     public void SpawnObject(GameObject prefabG)
     {
         var Spawn = (GameObject)Instantiate(
                 prefabG,
-                transform.Find("Back").transform.position,
+                SpawnZone.transform.position,
                 prefabG.transform.rotation);
     }
     public void ShowMenu(string menu)
@@ -88,6 +117,51 @@ public class MainMenuControl : MonoBehaviour {
         {
             HideMenus();
             foreach (GameObject g in SpawnMenuObjects)
+            {
+                g.SetActive(true);
+            }
+            //OC.UpdateCollection();
+        }
+        else if (menu == "Beds")
+        {
+            HideMenus();
+            foreach (GameObject g in BedSpawnables)
+            {
+                g.SetActive(true);
+            }
+            //OC.UpdateCollection();
+        }
+        else if (menu == "Chairs")
+        {
+            HideMenus();
+            foreach (GameObject g in ChairSpawnables)
+            {
+                g.SetActive(true);
+            }
+            //OC.UpdateCollection();
+        }
+        else if (menu == "Tables")
+        {
+            HideMenus();
+            foreach (GameObject g in TableSpawnables)
+            {
+                g.SetActive(true);
+            }
+            //OC.UpdateCollection();
+        }
+        else if (menu == "Sofas")
+        {
+            HideMenus();
+            foreach (GameObject g in SofaSpawnables)
+            {
+                g.SetActive(true);
+            }
+            //OC.UpdateCollection();
+        }
+        else if (menu == "Bookcases")
+        {
+            HideMenus();
+            foreach (GameObject g in BookcaseSpawnables)
             {
                 g.SetActive(true);
             }

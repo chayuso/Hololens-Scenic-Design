@@ -55,7 +55,6 @@ GameObject:
   - component: {fileID: 95082348362526312}
   - component: {fileID: 114382393014667482}
   - component: {fileID: 114187943803706588}
-  - component: {fileID: 114836389681240032}
   - component: {fileID: 114726430887062382}
   - component: {fileID: 114574110013305092}
   m_Layer: 0
@@ -738,17 +737,3 @@ MonoBehaviour:
   ConstraintOnRotation: 2
   OneHandMovement: 1
   cursorTrans: {fileID: 0}
---- !u!114 &114836389681240032
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1221619936339524}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8349a1bb80ba15647b86b456f1128224, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDragging: 0
-  canPickup: 0
-  heldbyHand: None

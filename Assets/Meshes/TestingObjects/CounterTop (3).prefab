@@ -19,14 +19,28 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4078977420821290}
-  - component: {fileID: 33167131407859668}
-  - component: {fileID: 65661875228877800}
-  - component: {fileID: 23430694426522404}
-  - component: {fileID: 114612381418902760}
-  - component: {fileID: 114711446726099980}
-  - component: {fileID: 114158636255773960}
   - component: {fileID: 114108817235471088}
   - component: {fileID: 114030400461572200}
+  - component: {fileID: 114612381418902760}
+  - component: {fileID: 114711446726099980}
+  m_Layer: 0
+  m_Name: CounterTop (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1531943512745400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4709629753543928}
+  - component: {fileID: 33854486782134202}
+  - component: {fileID: 65286289381015480}
+  - component: {fileID: 23182652630670936}
   m_Layer: 0
   m_Name: CounterTop (3)
   m_TagString: Untagged
@@ -41,18 +55,32 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1021054623291330}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.192, y: -0.29, z: 0.68383884}
-  m_LocalScale: {x: 2.04, y: 1.97, z: 0.11}
-  m_Children: []
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 0.1}
+  m_Children:
+  - {fileID: 4709629753543928}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23430694426522404
+--- !u!4 &4709629753543928
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1531943512745400}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4078977420821290}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23182652630670936
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1021054623291330}
+  m_GameObject: {fileID: 1531943512745400}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -81,19 +109,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33167131407859668
+--- !u!33 &33854486782134202
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1021054623291330}
+  m_GameObject: {fileID: 1531943512745400}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65661875228877800
+--- !u!65 &65286289381015480
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1021054623291330}
+  m_GameObject: {fileID: 1531943512745400}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -143,20 +171,6 @@ MonoBehaviour:
   ConstraintOnRotation: 2
   OneHandMovement: 1
   cursorTrans: {fileID: 0}
---- !u!114 &114158636255773960
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1021054623291330}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8349a1bb80ba15647b86b456f1128224, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDragging: 0
-  canPickup: 0
-  heldbyHand: None
 --- !u!114 &114612381418902760
 MonoBehaviour:
   m_ObjectHideFlags: 1
