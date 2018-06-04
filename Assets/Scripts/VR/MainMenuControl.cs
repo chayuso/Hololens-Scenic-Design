@@ -13,10 +13,17 @@ public class MainMenuControl : MonoBehaviour {
     private ObjectCollection OC;
     public GameObject testChairPrefab;
     public string MenuMode = "None";
+
+    // Use manager to control canvas
+    Manager manager;
+
     // Use this for initialization
     void Start () {
         OC = gameObject.GetComponent<ObjectCollection>();
         HideMenus();
+
+        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Manager>();
+        manager.canvas.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -64,6 +71,8 @@ public class MainMenuControl : MonoBehaviour {
         {
             g.SetActive(false);
         }
+                
+
         MenuMode = "None";
     }
     public void SpawnObject(GameObject prefabG)
@@ -93,10 +102,29 @@ public class MainMenuControl : MonoBehaviour {
             }
             //OC.UpdateCollection();
         }
+
+        else if (menu == "Note")
+        {
+            HideMenus();
+            manager.ShowCanvas();
+            manager.curState = Manager.State.note;
+
+            //OC.UpdateCollection();
+        }
+
+        else if (menu == "Project")
+        {
+            HideMenus();
+            manager.ShowCanvas();
+            manager.curState = Manager.State.selectProject;
+        }
+
         else if (menu == "None")
         {
             HideMenus();
         }
         MenuMode = menu;
     }
+
+    
 }
