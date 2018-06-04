@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 20406131227588824}
   m_Layer: 0
   m_Name: RaycastCamera
-  m_TagString: Untagged
+  m_TagString: raycam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,14 +177,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1359509202046460}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 4.7480006, y: 0.26999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4446544802611950}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4245765576518626
 Transform:
   m_ObjectHideFlags: 1
@@ -429,14 +429,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37870ab7a81bfb74b9fa277cf45b06d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SetStabilizationPlane: 1
+  SetStabilizationPlane: 0
   UseUnscaledTime: 1
-  LerpStabilizationPlanePowerCloser: 4
-  LerpStabilizationPlanePowerFarther: 7
+  LerpStabilizationPlanePowerCloser: 8
+  LerpStabilizationPlanePowerFarther: 14
   targetOverride: {fileID: 0}
   trackVelocity: 0
   UseGazeManager: 1
-  DefaultPlaneDistance: 2
+  DefaultPlaneDistance: 4
   DrawGizmos: 0
 --- !u!114 &114578836888783988
 MonoBehaviour:
@@ -450,8 +450,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   simulateHandsInEditor: 1
-  sourceType: 1
-  sourceNumber: 0
+  sourceType: 0
+  sourceNumber: 1
   Inputs: []
   mouse: {fileID: 1906025923057554, guid: 1c82f15755e170f4a8056a0b7f52cf0c, type: 2}
   leftHand: {fileID: 1747030157760962, guid: 0ff07ad2c7f9337489d2f7559b172d5d, type: 2}
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1a2a33ffcac354298137001635a001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxGazeCollisionDistance: 10
+  MaxGazeCollisionDistance: 20
   RaycastLayerMasks:
   - serializedVersion: 2
     m_Bits: 4294967291
@@ -526,7 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acb07a2de49ca4d478750eedc4858f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointingExtent: 10
+  pointingExtent: 20
   pointingRaycastLayerMasks:
   - serializedVersion: 2
     m_Bits: 4294967291
