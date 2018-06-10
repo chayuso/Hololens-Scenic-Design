@@ -11,6 +11,16 @@ TagManager:
   - Cursor
   - HotSpot
   - Environment
+  - Manager
+  - ProjectManager
+  - NoteManager
+  - NoteSlot
+  - MessageSlot
+  - BoundingBoxCorner
+  - HeightSlider
+  - SetManager
+  - Gizmo
+  - Spawnable
   layers:
   - Default
   - TransparentFX

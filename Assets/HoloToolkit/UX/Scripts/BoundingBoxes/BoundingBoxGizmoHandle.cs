@@ -31,7 +31,7 @@ namespace HoloToolkit.Unity.UX
         private bool isLeftHandedRotation = false;
         private Vector3 rotationFromPositionScale = new Vector3(-300.0f, -300.0f, -300.0f);
         private float minimumScaleNav = 0.001f;
-        private float scaleRate = 1.0f;
+        private float scaleRate = 10.0f;
         private float maxScale = 10.0f;
         private BoundingBoxGizmoHandleRotationType rotationCoordinateSystem;
         private BoundingBoxGizmoHandleHandMotionType handMotionForRotation;
@@ -143,6 +143,7 @@ namespace HoloToolkit.Unity.UX
 
         private void Start()
         {
+            gameObject.tag = "BoundingBoxCorner";
             isHandRotationAvailable = true;
 
 #if UNITY_WSA && UNITY_2017_2_OR_NEWER
@@ -155,6 +156,7 @@ namespace HoloToolkit.Unity.UX
         }
         private void Update()
         {
+            
             if (inputDownEventData != null)
             {
                 Vector3 currentHandPosition = Vector3.zero;

@@ -11,6 +11,7 @@ public class MainMenuControl : MonoBehaviour {
     public GameObject[] SofaSpawnables;
     public GameObject[] BookcaseSpawnables;
     public GameObject[] BedSpawnables;
+    public GameObject[] SetSelectObjects;
     public GameObject SpawnZone;
 
     public bool ShowMainMenu = false;
@@ -67,7 +68,15 @@ public class MainMenuControl : MonoBehaviour {
     {
         foreach (GameObject g in MainMenuObjects)
         {
-            g.SetActive(false);
+            if (g.tag == "HeightSlider")
+            {
+                RecursiveRendererEnabler(g, false);
+                RecursiveColliderEnabler(g, false);
+            }
+            else
+            {
+                g.SetActive(false);
+            }
         }
         foreach (GameObject g in SpawnMenuObjects)
         {
@@ -93,6 +102,10 @@ public class MainMenuControl : MonoBehaviour {
         {
             g.SetActive(false);
         }
+        foreach (GameObject g in SetSelectObjects)
+        {
+            g.SetActive(false);
+        }
         MenuMode = "None";
     }
     public void SpawnObject(GameObject prefabG)
@@ -102,6 +115,44 @@ public class MainMenuControl : MonoBehaviour {
                 SpawnZone.transform.position,
                 prefabG.transform.rotation);
     }
+    private void RecursiveRendererEnabler(GameObject gObject, bool setEnable)
+    {
+        if (gObject.GetComponent<MeshRenderer>())
+        {
+            gObject.GetComponent<MeshRenderer>().enabled = setEnable;
+        }
+        if (gObject.transform.childCount > 0)
+        {
+
+            foreach (Transform childObject in gObject.transform)
+            {
+                RecursiveRendererEnabler(childObject.gameObject, setEnable);
+            }
+        }
+    }
+    private void RecursiveColliderEnabler(GameObject gObject, bool setEnable)
+    {
+        if (gObject.GetComponent<BoxCollider>())
+        {
+            gObject.GetComponent<BoxCollider>().enabled = setEnable;
+        }
+        if (gObject.GetComponent<MeshCollider>())
+        {
+            gObject.GetComponent<MeshCollider>().enabled = setEnable;
+        }
+        if (gObject.GetComponent<SphereCollider>())
+        {
+            gObject.GetComponent<SphereCollider>().enabled = setEnable;
+        }
+        if (gObject.transform.childCount > 0)
+        {
+
+            foreach (Transform childObject in gObject.transform)
+            {
+                RecursiveColliderEnabler(childObject.gameObject, setEnable);
+            }
+        }
+    }
     public void ShowMenu(string menu)
     {
         if (menu == "Main")
@@ -109,7 +160,15 @@ public class MainMenuControl : MonoBehaviour {
             HideMenus();
             foreach (GameObject g in MainMenuObjects)
             {
-                g.SetActive(true);
+                if (g.tag == "HeightSlider")
+                {
+                    RecursiveRendererEnabler(g, true);
+                    RecursiveColliderEnabler(g, true);
+                }
+                else
+                {
+                    g.SetActive(true);
+                }
             }
             //OC.UpdateCollection();
         }
@@ -166,6 +225,14 @@ public class MainMenuControl : MonoBehaviour {
                 g.SetActive(true);
             }
             //OC.UpdateCollection();
+        }
+        else if (menu == "Sets")
+        {
+            HideMenus();
+            foreach (GameObject g in SetSelectObjects)
+            {
+                g.SetActive(true);
+            }
         }
         else if (menu == "None")
         {

@@ -139,6 +139,7 @@ namespace HoloToolkit.Examples.InteractiveElements
 
         public override void ManipulationUpdate(Vector3 startGesturePosition, Vector3 currentGesturePosition, Vector3 startHeadOrigin, Vector3 startHeadRay, GestureInteractive.GestureManipulationState gestureState)
         {
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MotionControlTesting>().fading= false;
             if (AlignmentVector != SliderBar.transform.right)
             {
                 mSliderVector = SliderBar.transform.InverseTransformPoint(mStartCenter + SliderBar.transform.right * mSliderMagnitude / 2) - SliderBar.transform.InverseTransformPoint(mStartCenter - SliderBar.transform.right * mSliderMagnitude / 2);

@@ -565,6 +565,10 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
                     RecursiveCollidereEnabler(GetComponent<BoundingBoxRig>().appBarInstance.gameObject, false); 
                 }
             }
+            foreach (GameObject g in GameObject.FindGameObjectsWithTag("BoundingBoxCorner"))
+            {
+                RecursiveCollidereEnabler(g, false);
+            }
             ShowBoundingBox = true;
         }
    
@@ -579,35 +583,33 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
                     RecursiveCollidereEnabler(GetComponent<BoundingBoxRig>().appBarInstance.gameObject, true);
                 }
             }
+            foreach (GameObject g in GameObject.FindGameObjectsWithTag("BoundingBoxCorner"))
+            {
+                RecursiveCollidereEnabler(g, true);
+            }
             //Hide Bounding Box visual on release
             ShowBoundingBox = false;
         }
         private void RecursiveCollidereEnabler(GameObject gObject, bool setEnable)
         {
+            if (gObject.GetComponent<BoxCollider>())
+            {
+                gObject.GetComponent<BoxCollider>().enabled = setEnable;
+            }
+            if (gObject.GetComponent<MeshCollider>())
+            {
+                gObject.GetComponent<MeshCollider>().enabled = setEnable;
+            }
+            if (gObject.GetComponent<SphereCollider>())
+            {
+                gObject.GetComponent<SphereCollider>().enabled = setEnable;
+            }
             if (gObject.transform.childCount > 0)
             {
-                if (gObject.GetComponent<BoxCollider>())
-                {
-                    gObject.GetComponent<BoxCollider>().enabled = setEnable;
-                }
-                if (gObject.GetComponent<MeshCollider>())
-                {
-                    gObject.GetComponent<MeshCollider>().enabled = setEnable;
-                }
+                
                 foreach (Transform childObject in gObject.transform)
                 {
                     RecursiveCollidereEnabler(childObject.gameObject, setEnable);
-                }
-            }
-            else
-            {
-                if (gObject.GetComponent<BoxCollider>())
-                {
-                    gObject.GetComponent<BoxCollider>().enabled = setEnable;
-                }
-                if (gObject.GetComponent<MeshCollider>())
-                {
-                    gObject.GetComponent<MeshCollider>().enabled = setEnable;
                 }
             }
         }

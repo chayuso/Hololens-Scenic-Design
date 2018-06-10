@@ -172,11 +172,13 @@ namespace HoloToolkit.Unity.UX
             boxInstance = Instantiate(BoundingBoxPrefab) as BoundingBox;
             boxInstance.Target = objectToBound;
             boxInstance.FlattenPreference = flattenedAxis;
+            boxInstance.tag = "Gizmo";
 
             BuildRig();
 
             appBarInstance = Instantiate(appBarPrefab) as AppBar;
             appBarInstance.BoundingBox = boxInstance;
+            appBarInstance.tag = "Gizmo";
 
             boxInstance.IsVisible = false;
         }

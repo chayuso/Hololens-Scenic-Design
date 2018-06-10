@@ -6,6 +6,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine.UI;
 using HoloToolkit.Unity.InputModule;
 using HoloToolkit.Unity;
+using HoloToolkit.Examples.InteractiveElements;
 using UnityEngine;
 
 public class MotionControlTesting : NetworkBehaviour
@@ -32,13 +33,16 @@ public class MotionControlTesting : NetworkBehaviour
     private float speed = 400f;
     public float journeyLength;
     public bool gradient = false;
+    public bool fading = false; //Used Strictly for hiding and showing camera and fadeplane
     private float fadeRate = 5f;
     Color gradientColor;
     GameObject raycamera;
     public float elevation = -.5f;
+    SliderGestureControl sliderG;
     // Use this for initialization
     void Start()
     {
+        sliderG = GameObject.FindGameObjectWithTag("HeightSlider").GetComponent<SliderGestureControl>();
         if (!transform.parent.parent.GetComponent<NetworkIdentity>().isLocalPlayer)
         {
             return;
@@ -57,7 +61,14 @@ public class MotionControlTesting : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (!sliderG)
+        {
+            sliderG = GameObject.FindGameObjectWithTag("HeightSlider").GetComponent<SliderGestureControl>();
+        }
+        else
+        {
+            elevation = -1.0f + (.2f * sliderG.SliderValue);
+        }
         if (!transform.parent.parent.GetComponent<NetworkIdentity>().isLocalPlayer)
         {
             return;
@@ -69,19 +80,19 @@ public class MotionControlTesting : NetworkBehaviour
             float fracJourneyCamera = distCoveredCamera / journeyLength;
             transform.position = Vector3.Lerp(transform.position, new Vector3(CurrentPosition.x,CurrentPosition.y+elevation,CurrentPosition.z), fracJourneyCamera);
             transform.parent.position = Vector3.Lerp(transform.parent.position, new Vector3(CurrentPosition.x, CurrentPosition.y + elevation, CurrentPosition.z), fracJourneyCamera);
-            if (!transform.parent.parent.gameObject.GetComponent<PlayerVRCharacter>().disableMove)
+            /*if (!transform.parent.parent.gameObject.GetComponent<PlayerVRCharacter>().disableMove)
             {
                 RotateView();
+            }*/
+            if (Vector3.Distance(transform.position, new Vector3(CurrentPosition.x, CurrentPosition.y + elevation, CurrentPosition.z)) < .1f)
+            {
+                gradient = false;
+                fading = false;
+                transform.parent.parent.GetComponent<Renderer>().enabled = false;
             }
-
-            if (gradient)
+            if (fading)
             {
                 transform.parent.parent.GetComponent<Renderer>().enabled = true;
-                if (Vector3.Distance(transform.position, new Vector3(CurrentPosition.x, CurrentPosition.y + elevation, CurrentPosition.z)) < .1f)
-                {
-                    gradient = false;
-                    transform.parent.parent.GetComponent<Renderer>().enabled = false;
-                }
                 transform.Find("FadePlane").GetComponent<Renderer>().material.color = Color.Lerp(transform.Find("FadePlane").GetComponent<Renderer>().material.color, gradientColor, fadeRate * 3 * Time.deltaTime);
             }
             else
@@ -106,6 +117,7 @@ public class MotionControlTesting : NetworkBehaviour
                     
                     
                     gradient = true;
+                    fading = true;
                  
                 }
                
