@@ -59,11 +59,25 @@ public class VRCameraShifter : NetworkBehaviour
         // save camera's orientation in the environment's reference frame
         trans = GameObject.FindGameObjectWithTag("Environment").GetComponent<Transform>();
         Spawn.transform.rotation = Quaternion.Inverse(trans.rotation) * Camera.main.transform.rotation;
-
+        Spawn.transform.parent = GameObject.FindGameObjectWithTag("Environment").transform;
         // Spawn.transform.eulerAngles = new Vector3(0, CPlayer.transform.Find("MixedRealityCameraParent").transform.Find("MixedRealityCamera").transform.eulerAngles.y, 0);
         BuildCamerasArray();
+        NextCam();
     }
+    public void SpawnCameraHotSpotPosRot(GameObject gObject)
+    {
+        // spawn is the hotspot 
+        var Spawng = (GameObject)Instantiate(
+                hotSpotPrefab,
+                gObject.transform.position,
+                gObject.transform.rotation);
 
+        // save camera's orientation in the environment's reference frame
+        Spawng.transform.parent = GameObject.FindGameObjectWithTag("Environment").transform;
+        // Spawn.transform.eulerAngles = new Vector3(0, CPlayer.transform.Find("MixedRealityCameraParent").transform.Find("MixedRealityCamera").transform.eulerAngles.y, 0);
+        BuildCamerasArray();
+        NextCam();
+    }
     public void SetCamRotation()
     {
         // saved camera's orientation in the environment's reference frame:

@@ -12,6 +12,7 @@ public class MainMenuControl : MonoBehaviour {
     public GameObject[] BookcaseSpawnables;
     public GameObject[] BedSpawnables;
     public GameObject[] SetSelectObjects;
+    public GameObject[] LightObjects;
     public GameObject SpawnZone;
 
     public bool ShowMainMenu = false;
@@ -104,6 +105,18 @@ public class MainMenuControl : MonoBehaviour {
         }
         foreach (GameObject g in SetSelectObjects)
         {
+            if (g.tag == "ScaleSetSlider")
+            {
+                RecursiveRendererEnabler(g, false);
+                RecursiveColliderEnabler(g, false);
+            }
+            else
+            {
+                g.SetActive(false);
+            }
+        }
+        foreach (GameObject g in LightObjects)
+        {
             g.SetActive(false);
         }
         MenuMode = "None";
@@ -114,6 +127,7 @@ public class MainMenuControl : MonoBehaviour {
                 prefabG,
                 SpawnZone.transform.position,
                 prefabG.transform.rotation);
+        Spawn.transform.parent = GameObject.FindGameObjectWithTag("Environment").transform;
     }
     private void RecursiveRendererEnabler(GameObject gObject, bool setEnable)
     {
@@ -231,8 +245,25 @@ public class MainMenuControl : MonoBehaviour {
             HideMenus();
             foreach (GameObject g in SetSelectObjects)
             {
+                if (g.tag == "ScaleSetSlider")
+                {
+                    RecursiveRendererEnabler(g, true);
+                    RecursiveColliderEnabler(g, true);
+                }
+                else
+                {
+                    g.SetActive(true);
+                }
+            }
+        }
+        else if (menu == "Light")
+        {
+            HideMenus();
+            foreach (GameObject g in LightObjects)
+            {
                 g.SetActive(true);
             }
+            //OC.UpdateCollection();
         }
         else if (menu == "None")
         {

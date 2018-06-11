@@ -197,6 +197,7 @@ namespace HoloToolkit.Unity.UX
             destroying = true;
             ShowRig = false;
             ClearHandles();
+        
         }
 
         private void UpdateBoundsPoints()

@@ -239,10 +239,19 @@ namespace HoloToolkit.Unity.UX
             {
                 case "Remove":
                     // Destroy the target object, Bounding Box, Bounding Box Rig and App Bar
+                    bool isHotSpot = false;
+                    if (boundingBox.Target.tag == "HotSpot")
+                    {
+                        isHotSpot = true;
+                    }
                     boundingBox.Target.GetComponent<BoundingBoxRig>().Deactivate();
                     Destroy(boundingBox.Target.GetComponent<BoundingBoxRig>());
                     Destroy(boundingBox.Target);
                     Destroy(gameObject);
+                    if (isHotSpot)
+                    {
+                        GameObject.FindGameObjectWithTag("Player").GetComponent<VRCameraShifter>().BuildCamerasArray();
+                    }
                     break;
 
                 case "Adjust":
@@ -283,6 +292,7 @@ namespace HoloToolkit.Unity.UX
                     boundingBox.Target,
                     transform.position,
                     boundingBox.Target.transform.rotation);
+            Dup.transform.parent = GameObject.FindGameObjectWithTag("Environment").transform;
         }
         private void CreateButton(ButtonTemplate template, ButtonIconProfile customIconProfile)
         {

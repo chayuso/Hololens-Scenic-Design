@@ -21,6 +21,7 @@ TagManager:
   - SetManager
   - Gizmo
   - Spawnable
+  - ScaleSetSlider
   layers:
   - Default
   - TransparentFX
