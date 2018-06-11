@@ -13,6 +13,7 @@ public class MainMenuControl : MonoBehaviour {
     public GameObject[] BedSpawnables;
     public GameObject[] SetSelectObjects;
     public GameObject[] LightObjects;
+    public GameObject[] DecorationObjects;
     public GameObject SpawnZone;
 
     public bool ShowMainMenu = false;
@@ -100,6 +101,10 @@ public class MainMenuControl : MonoBehaviour {
             g.SetActive(false);
         }
         foreach (GameObject g in BedSpawnables)
+        {
+            g.SetActive(false);
+        }
+        foreach (GameObject g in DecorationObjects)
         {
             g.SetActive(false);
         }
@@ -260,6 +265,15 @@ public class MainMenuControl : MonoBehaviour {
         {
             HideMenus();
             foreach (GameObject g in LightObjects)
+            {
+                g.SetActive(true);
+            }
+            //OC.UpdateCollection();
+        }
+        else if (menu == "Decorations")
+        {
+            HideMenus();
+            foreach (GameObject g in DecorationObjects)
             {
                 g.SetActive(true);
             }

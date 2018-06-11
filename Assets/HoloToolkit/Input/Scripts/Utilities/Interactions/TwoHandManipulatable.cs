@@ -506,8 +506,31 @@ namespace HoloToolkit.Unity.InputModule.Utilities.Interactions
         {
             float rh = 3 * Input.GetAxis("MC_RIGHT_TOUCHPAD_HORIZONTAL");
             float lh = 3 * Input.GetAxis("MC_LEFT_TOUCHPAD_HORIZONTAL");
-            HostTransform.transform.Rotate(0, -lh, 0);
-            HostTransform.transform.Rotate(0, -rh, 0);
+
+            float verticalLeft = Input.GetAxis("MC_LEFT_TOUCHPAD_VERTICAL");
+            float verticalRight = Input.GetAxis("MC_RIGHT_TOUCHPAD_VERTICAL");
+            if (verticalLeft>0)
+            {
+                verticalLeft = Mathf.Clamp(verticalLeft, .5f, 1f);
+            }
+            if (verticalRight > 0)
+            {
+                verticalRight = Mathf.Clamp(verticalRight, .5f, 1f);
+            }
+            float rv = .025f * verticalRight;
+            float lv = .025f * verticalLeft;
+       
+            if (!Input.GetButton("MC_LEFT_TOUCHPAD_CLICK") && !Input.GetButton("MC_RIGHT_TOUCHPAD_CLICK"))
+            {
+                HostTransform.transform.Rotate(0, -lh, 0);
+                HostTransform.transform.Rotate(0, -rh, 0);
+            }
+            else
+            {
+                HostTransform.transform.localScale = new Vector3(HostTransform.transform.localScale.x*(1f+rv), HostTransform.transform.localScale.y * (1f + rv), HostTransform.transform.localScale.z * (1f + rv));
+                HostTransform.transform.localScale = new Vector3(HostTransform.transform.localScale.x * (1f +lv), HostTransform.transform.localScale.y * (1f + lv), HostTransform.transform.localScale.z * (1f + lv));
+            }
+            
             var targetPosition = m_moveLogic.Update(m_handsPressedLocationsMap.Values.First(), HostTransform.position);
 
             HostTransform.position = cursorTrans.position;//targetPosition;
